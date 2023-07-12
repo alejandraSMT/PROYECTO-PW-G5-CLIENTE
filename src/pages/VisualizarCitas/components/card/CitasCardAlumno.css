@@ -1,0 +1,51 @@
+.container{
+    padding: 2px;
+}
+
+.rounded-circle{
+    height: 60%;
+    width: 60%;
+}
+
+.card-title{
+    font-size: medium;
+}
+
+.span{
+    font-size: medium;
+}
+
+.memberpic .member{
+    overflow: hidden;
+    width: 180px;
+}
+
+a:link{
+    color: black;
+    font-weight: 500;
+}
+
+.focus{
+    color: rgb(0, 0, 0) !important;
+}
+
+a{
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:visited{
+    font-weight: normal;
+}
+
+
+.card{
+    max-height: 170em;
+    max-width:22em;
+    width: auto;
+    position: relative;
+}
+
+.card-img{
+    max-width: auto;
+}

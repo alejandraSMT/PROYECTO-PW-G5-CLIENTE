@@ -1,0 +1,17 @@
+.lista-container {
+    display: inline-flex;
+    border-color: blueviolet;
+}
+  
+.lista-elemento { /* diseño de los cuadros de los cursos*/
+    border: 1px solid purple;
+    margin-right: 30px; 
+    padding: 8px;
+    border-radius: 10px; 
+    text-align: center;
+}
+
+
+.lista-elemento:last-child {
+    margin-right: 0;
+}

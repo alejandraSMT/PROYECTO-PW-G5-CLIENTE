@@ -1,0 +1,56 @@
+/*https://bbbootstrap.com/snippets/bootstrap-rating-star-inputs-using-jquery-22603699*/
+
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+ @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+#calificarAsesoria{
+    background-color: #ece6f0;
+    width: fit-content;
+    border: none;
+    position: absolute;
+    top: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+fieldset, label { margin: 0; padding: 0; }
+
+.rating { 
+    border: none;
+    margin-right: 50px;
+}
+
+.rating > [id^="star"] { display: none; } 
+.rating > label:before { 
+margin: 5px;
+font-size: 2.25em;
+font-family: FontAwesome;
+display: inline-block;
+content: "\f005";
+}
+
+.rating > label { 
+color: #ddd; 
+float: right; 
+}
+
+.rating > [id^="star"]:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > [id^="star"]:checked + label:hover, /* hover current star when changing rating */
+.rating > [id^="star"]:checked ~ label:hover,
+.rating > label:hover ~ [id^="star"]:checked ~ label, /* lighten current selection */
+.rating > [id^="star"]:checked ~ label:hover ~ label { color: #FFED85;  }
+
+.reset-option {
+display: none;
+}
+
+.reset-button {
+margin: 6px 12px;
+background-color: rgb(255, 255, 255);
+text-transform: uppercase;
+}

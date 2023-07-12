@@ -1,0 +1,15 @@
+.general{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 15px;
+}
+
+.header{
+    font-size: x-large;
+    font-weight: 300px;
+}
+
+.divider{
+    margin: auto;
+    padding-bottom: 10px;
+}

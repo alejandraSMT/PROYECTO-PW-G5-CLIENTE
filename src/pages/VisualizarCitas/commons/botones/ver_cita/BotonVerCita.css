@@ -1,0 +1,14 @@
+#verCita{
+    border-style:solid;
+    color: #6750a4;
+    background-color: white;
+    border-color: #79747e;
+    height: max-content;
+    border-radius: 25px;
+}
+
+#verCita:hover{
+    color: white;
+    background-color: #6750a4;
+    border:none;
+}

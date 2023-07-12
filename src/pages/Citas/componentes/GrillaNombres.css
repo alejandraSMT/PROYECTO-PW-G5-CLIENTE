@@ -1,0 +1,13 @@
+.persona-cita-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    
+  }
+  
+  .persona-cita-item {
+
+    padding: 20px;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,26 @@
+.creadorCom{
+    padding-left: 20px;
+    font-weight: 600;
+}
+
+.circleBg {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(250, 205, 250);
+    color: rgb(77, 5, 110);
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+  }
+
+.coment{
+    padding-top: 30px;
+    padding-left: 60px;
+}
+
+.Comentario{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

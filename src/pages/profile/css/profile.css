@@ -1,0 +1,146 @@
+#cuerpo{
+    /*position: absolute;*/
+    margin-top: 20%;
+    width: 75%;
+    /*height: 50px;
+    background-color: red; */
+    margin: 0 auto;
+}
+
+/*personal_info.css*/
+
+/* Atributos del recuadro de texto */
+.form-control {
+    border-color: purple;
+    border-radius: 3px;
+    color: purple;
+    width: 250px;
+    height: 56px;
+    background-color: transparent;
+}
+
+/* Atributos del texto (label) en el borde superior */
+.form-label {
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    transform: translateY(15px) translateX(-2px) scale(0.85);
+    user-select: none;
+    color: purple;
+    line-height: 1rem;
+}
+
+/*segun W3School para quese vea bien la foto del profesor a la derecha*/
+.container{
+    position: relative;
+}
+
+/*esto es para que los forms no estén tan separados entre sí*/
+.col{
+    max-width: 265px;
+    max-height: 70px;
+}
+
+/*izquierda y derecha es para poner la foto del profesor del lado derecho*/
+.izquierda{
+    position: absolute;
+    left: auto;
+}
+
+.derecha{
+    position: absolute;
+    right: 70px;
+}
+
+.izquierda_uni{
+    position: absolute;
+    width: 80%;
+    
+}
+
+.derecha_uni{
+    position: absolute;
+    left: 55%;
+    
+}
+
+/*
+.row{
+    border: 1px solid #000;
+}
+*/
+
+p{
+    font-weight: bold;
+}
+
+#adjuntar{
+    text-align: center;
+    margin-top: 10px;
+    color: #A114B5;
+}
+
+#pruebitaid{
+    width: 500px;
+}
+span{
+    width: 40%;
+    border: #000;
+}
+
+
+
+
+/*tabs.css*/
+/*da formato a todo lo que abarcan los tabs*/
+.Tabs{
+    margin-top: 210px;/*se hace esto para compensar por el position: auto de la sección de arriba (izquierda y derecha)*/
+    background: #FEF7FF;
+    height: auto;
+    min-height: 400px;
+}
+
+/*formato de los tabs*/
+ul.nav li{
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: large;
+    cursor: pointer;
+}
+
+/*cambia el color de las tabs al pasar el mouse encima*/
+ul.nav li:hover {
+    background: rgba(50, 224, 196, 0.15);
+}
+
+/*resalta la tab que esté seleccionada*/
+ul.nav li.active {
+    color: purple;
+    font-weight: bold;
+    /*background-color: #A114B5;*/
+    border-bottom:4px solid #A114B5;
+}
+
+.linea{
+    border-left: 1px solid #000;
+    height: 250px;
+    position: absolute;
+    left: 53%;
+}
+
+li{
+    padding-top: 10px;
+}
+
+
+#titulo, #presentacion{
+    
+    width: 95%;
+}
+
+#universidad, #carrera{
+    width: 230%;
+}
+

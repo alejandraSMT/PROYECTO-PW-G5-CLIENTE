@@ -1,0 +1,59 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  
+.botones-container{
+    display: flex;
+    min-width: 200px;
+    margin-top: 1px;
+    margin-left: 10px;
+}
+
+.botones-container button{
+    overflow:visible;
+    border: #79747E 1px solid;
+    font-weight:500;
+}
+
+#btn-right{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+#btn-left{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+  .boton-ovalado {
+    background-color: #6c3082;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .boton-ovalado:hover {
+    background-color: #7d4296;
+  }
+  
+  .boton-activo {
+    background-color: #E8DEF8;
+    color: black;
+  }
+  
+  .boton-inactivo {
+    background-color: white;
+    color:  black;
+  }
+  
+  .calendar-container {
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+

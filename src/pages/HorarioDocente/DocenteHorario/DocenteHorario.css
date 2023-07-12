@@ -1,0 +1,57 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  border-radius: 10px 10px 10px 10px;
+  border-color: #6750a4;
+  color: #6750a4;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  background-color: #fef7ff;
+  padding-left: 5px;
+  padding-right: 5px;
+  transform: translateY(15px) translateX(4px) scale(0.85);
+  user-select: none;
+  color: #6750a4;
+  line-height: 1rem;
+}
+
+.control {
+  border-color: #6750a4;
+  border-radius: 3px;
+  color: #6750a4;
+}
+
+#btnAgregar {
+  text-align: center;
+  line-height: 83px;
+}
+
+.btnAgregar {
+  color: black;
+  background-color: rgb(255, 255, 255);
+  font-size: small;
+  border-radius: 30px;
+  border-color: #6750a4;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.btnAgregar:hover {
+  background-color: #6750a4;
+}
+
+.btnAgregar:active {
+  background-color: #6750a4;
+}

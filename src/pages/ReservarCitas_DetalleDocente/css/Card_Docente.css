@@ -1,0 +1,43 @@
+#container-docente{ /* estilo al container con datos del docente*/
+    text-align: center;
+    background-color: #f8eefc;
+    
+}
+
+#linea-encabezado{ /*estilo a la linea debajo de citas*/
+    color: rgb(179, 118, 236);
+    border-width: 2px; 
+    
+}
+
+#lado-izquierda{ /*mover a la izquierda*/
+    text-align: left;
+}
+
+#logo-forma{ /*forma al circulito al lado de datos */
+    display: flex; 
+    align-items: center; 
+}
+
+#estilo-logo{
+    margin-right: 10px;
+    width: 40px;
+}
+
+
+#titulo-docente{ /* tamaño al titulo del docente debajo de su nombre*/
+    font-size: small;
+}
+
+#foto-docente{ /* diseño de la foto*/
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#descripcion-docente{ /* descripcion ordenada*/
+    text-align: justify;
+    flex-grow: 1;
+    
+}
+

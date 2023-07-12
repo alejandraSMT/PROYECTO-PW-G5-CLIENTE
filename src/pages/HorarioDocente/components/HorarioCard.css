@@ -1,0 +1,19 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.col-card-contador {
+  background-color:  #9274e4;
+  text-align: center;
+  font-weight: bold;
+  width: 33px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.card-row{
+  background-color: #fef7ff;
+}
+
+.card{
+  border-color: #fef7ff;
+  border-radius: 0%;
+}

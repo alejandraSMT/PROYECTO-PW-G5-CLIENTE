@@ -1,0 +1,14 @@
+.btn{
+    background-color: #6750a4;
+    color: white;
+    border: none;
+    height: fit-content;
+    border-radius: 25px;
+}
+
+.btn:hover{
+    color: #6750a4;
+    background-color: white;
+    border-style:solid;
+    border-color: #6750a4;
+}

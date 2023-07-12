@@ -1,0 +1,11 @@
+.TituloPagina{
+    color: black;
+    font-weight: 600;
+    font-size: larger;
+    padding-top: 15px;
+}
+
+.TituloPagina hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    }

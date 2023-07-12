@@ -1,0 +1,88 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.registro{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.registro h2{
+    margin-top: 50px;
+}
+
+.registro .regisForm{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.registro .regisForm h6{
+    margin-right: 480px;
+    color: purple;
+}
+
+.regisForm .form-control, .regisForm .form-select {
+    border-color: purple;
+    border-radius: 3px;
+    color: purple;
+    width: 291px;
+    height: 56px;
+}
+
+/* Atributos del texto (label) en el borde superior */
+.regisForm .form-label {
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    transform: translateY(15px) translateX(-2px) scale(0.85);
+    user-select: none;
+    color: purple;
+    line-height: 1rem;
+}
+
+/* Quita la sombra cuando le das click*/
+.regisForm .form-control:focus, .regisForm .form-select:focus {
+    box-shadow: none;
+    border-color: purple;
+    color: purple;
+}
+
+.registro #submitRegForm{
+    margin-top: 25px;
+    margin-left: 520px;
+    background-color: #E8DEF8;
+    border-radius: 150px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-color: #E8DEF8;
+    color: black;
+    font-weight: 500;
+    border-width: 0px;
+    transform: scale(1);
+
+}
+
+.regisForm #password{
+    margin-left: 5px;
+}
+
+.regisForm #password2{
+    margin-left: -5px;
+}
+
+.regisForm #name{
+    margin-left: 5px;
+}
+
+.regisForm #lastname{
+    margin-left: 5px;
+}
+
+.regisForm #rol{
+    margin-left: 10px;
+}
+
+

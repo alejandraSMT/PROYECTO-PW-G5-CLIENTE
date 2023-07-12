@@ -1,0 +1,89 @@
+.btn-close {
+    color: #fff !important; 
+  }
+
+.btn-close{
+    border:none;
+    color: black;
+}
+
+.btn-close:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+.offcanvas {
+    background-color: #bdbdbd;
+}
+
+nav{
+    background-color: #f7ecfe;
+}
+.navbar-toggler{
+    border:none;
+    color: black;
+}
+.navbar-toggler:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+.navbar-nav > li:hover {
+    background-color: #320144;
+    color: rgb(194, 128, 202);
+  }
+  
+  .navbar-nav > li > a {
+    color: black;
+  }
+  
+  .navbar-nav > li:hover > a {
+    color: rgb(194, 128, 202);
+  }
+  
+.SAC {
+    color: black;
+    text-align: center;
+    margin-top: 400px;
+    font-weight: 600;
+}
+
+.navbar-brand{
+    text-align: center;
+    font-size: 26px;
+    color: black;
+    font-weight: 600;
+}
+
+.offcanvas-title{
+    color: #995af6;
+    font-weight: bold;
+}
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0%;
+  }
+  
+  .navbar-nav {
+    font-size: 1.25rem;
+  } 
+
+  .nav-item {
+    padding: 0.75rem; 
+  }
+  
+  .nav-link {
+    font-weight: 600;
+    padding-left: 50px;
+  }
+
+  .my-custom-class{
+    padding-right: 20px;
+  }
+
+  .thin-menu {
+    max-width: 300px; /* Puedes ajustar este valor según tus necesidades */
+}
