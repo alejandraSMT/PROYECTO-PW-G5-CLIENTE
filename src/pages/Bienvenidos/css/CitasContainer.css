@@ -1,0 +1,54 @@
+.seccionRedondeada{
+    border: 2px solid gray;
+    background-color: aliceblue;
+    max-height: 8em;
+    max-width:45em;
+    width: 40em;
+    border-radius: 10px;
+    display: flex; /* Establece el contenedor como flexbox */
+  align-items: center;
+}
+
+.GroupCom{
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circulo.rounded-circle{
+    height: 10%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.Subtitulocitas {
+    color: black;
+    font-weight: 600;
+    font-size: x-large;
+    margin-top: 10px;
+    margin-right: 1570px; /* Ajusta el margen izquierdo según tus necesidades */
+    text-align: left;
+  }
+
+.contenedorCitas{
+    width: 500px;
+    height: 100px;
+}
+.nombreSeccion, .horarioSeccion {
+    margin-bottom: 5px; /* Agrega un margen inferior para separar los elementos */
+  }
+
+  .contenidoSeccion {
+    display: flex; /* Establece el contenedor interno como flexbox */
+    flex-direction: column; /* Alinea los elementos en columna */
+    margin-left: 10px; /* Agrega un margen izquierdo para separar del círculo */
+  }
+
+  .citasContainerWrapper {
+    margin-top: 20px;
+    width: 100%;
+    margin-left: 100px;
+  }

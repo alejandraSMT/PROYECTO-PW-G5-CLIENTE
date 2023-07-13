@@ -16,6 +16,7 @@ import ReservarCitas_DetalleDocente from './pages/ReservarCitas_DetalleDocente/m
 
 //Alfredo
 import ComentariosPage from './pages/Comentarios/main-view/ComentarioPage.js';
+import BienvenidaDocente from './pages/Bienvenidos/main-view/BienvenidaDocente.js';
 //export default ComentariosPage;
 
 
@@ -76,6 +77,7 @@ export default function App(){
 
                     // Alfredo
                     <Route path = "/comentarios" element = {<ComentariosPage />} />
+                    <Route path = "/bienvenidaProfesor" element = {<BienvenidaDocente />} />
 
                     // Alejandra
                     <Route path = "/alumnos" element = {<AlumnoCitasView />} />
