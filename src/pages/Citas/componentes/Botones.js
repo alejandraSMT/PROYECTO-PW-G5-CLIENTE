@@ -1,25 +1,38 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './botones.css';
-//import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { BsCheck } from 'react-icons/bs';
 
-function MisBotones({ isButton1Pressed, isButton2Pressed, handleButton1Click, handleButton2Click }) {
+function MisBotones({ handleButton1Click, handleButton2Click }) {
+  const [isButton1Pressed, setIsButton1Pressed] = useState(true);
+  const [isButton2Pressed, setIsButton2Pressed] = useState(false);
+
+  const handleClickButton1 = () => {
+    setIsButton1Pressed(true);
+    setIsButton2Pressed(false);
+    handleButton1Click();
+  };
+
+  const handleClickButton2 = () => {
+    setIsButton1Pressed(false);
+    setIsButton2Pressed(true);
+    handleButton2Click();
+  };
+
   return (
     <div className="botones-container">
       <br></br>
       <button
         className={`btn text-nowrap ${isButton1Pressed ? 'boton-activo' : 'boton-inactivo'}`}
         id="btn-left"
-        onClick={handleButton1Click}
+        onClick={handleClickButton1}
       >
         {isButton1Pressed && <BsCheck className="check-icon" />} Por nombre
       </button>
       <button
         className={`btn text-nowrap ${isButton2Pressed ? 'boton-activo' : 'boton-inactivo'}`}
         id="btn-right"
-        onClick={handleButton2Click}
+        onClick={handleClickButton2}
       >
         {isButton2Pressed && <BsCheck className="check-icon" />} Por fecha
       </button>
@@ -27,17 +40,13 @@ function MisBotones({ isButton1Pressed, isButton2Pressed, handleButton1Click, ha
   );
 }
 
-export default function BotonesFuncion({ handleButton1Click, handleButton2Click, isButton1Pressed, isButton2Pressed }) {
+export default function BotonesFuncion({ handleButton1Click, handleButton2Click }) {
   return (
     <div>
-      <div className="botones-container">
-        <MisBotones
-          isButton1Pressed={isButton1Pressed}
-          isButton2Pressed={isButton2Pressed}
-          handleButton1Click={handleButton1Click}
-          handleButton2Click={handleButton2Click}
-        />
-      </div>
+      <MisBotones
+        handleButton1Click={handleButton1Click}
+        handleButton2Click={handleButton2Click}
+      />
     </div>
   );
 }

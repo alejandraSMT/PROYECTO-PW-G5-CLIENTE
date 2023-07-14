@@ -9,7 +9,6 @@ import BotonesFuncion from './componentes/Botones';
 import './componentes/barraestilo.css';
 import Header from '../Header/Header';
 
-
 export default function App() {
   const personaCitas = [
     {
@@ -38,16 +37,18 @@ export default function App() {
   }
 
   return (
-    <div className='w-100'>
     <div className='contenedor'>
-    <Header />
-      <br/>
+      <Header />
+      <br />
       <h5 className='titulo'>Reserva de cita</h5>
       <hr className='divider' />
-      <div className='divider-container'>
-        <div className='container-barra'>
+
+      <div className='barra-botones-container'>
+        <div className='barra-container'>
           {isButton1Pressed && <BarradeBusqueda />}
           {isButton2Pressed && <BarradeBusquedaCalendar />}
+        </div>
+        <div className='botones-container'>
           <BotonesFuncion
             handleButton1Click={handleButton1Click}
             handleButton2Click={handleButton2Click}
@@ -57,12 +58,9 @@ export default function App() {
         </div>
       </div>
       <br />
-      <br />
-      <br />
       <div className='grilla-container'>
         <GrillaNombres personaCitas={personaCitas} />
       </div>
-    </div>
     </div>
   );
 }
