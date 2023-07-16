@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
 import Card_Docente from "../../ReservarCitas_DetalleDocente/components/Card_Docente.js";
 import Horario from "../../ReservarCitas_DetalleDocente/components/Horario.js";
 import "../../ReservarCitas_DetalleDocente/css/Card_Docente.css";
@@ -6,38 +6,47 @@ import "../../ReservarCitas_DetalleDocente/css/Curso.css";
 import "../../ReservarCitas_DetalleDocente/css/Horario.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Header from '../../Header/Header.js';
+import { useEffect, useState } from 'react';
 
+function DetalleDocente(usuarioEnviado) {
+  const idUsuario = 1; // ID de usuario enviado cuando se da click en el profesor para reservar cita
+  const [profesor, setProfesor] = useState([]);
 
-function DetalleDocente(){ //lo que se mostrata
-  
+  useEffect(() => {
+    obtenerProfesor();
+  }, []);
+
+  function obtenerProfesor() {
+    fetch('http://localhost:3001/obtener-profesor-total/' + idUsuario)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Verificar los datos obtenidos desde el servidor
+        setProfesor(data);
+      })
+      .catch(error => console.log('Ocurrió un error:', error));
+  }
+
   return (
-    
     <div>
-      <Header/>
-      <div class="container">
-        <br/>
-        <h1>Citas</h1> 
-        
-        <Card_Docente/>  
-     
+      <Header />
+      <div className="container">
+        <br />
+        <h1>Citas</h1>
+        <Card_Docente profesor={profesor}/>
+
       </div>
 
       <br/>
 
-      <div class="container">
-
+      <div className="container">
         <b>Fechas y horarios disponibles</b>
         <hr/>
-
-        <Horario/>
+        <Horario profesor={profesor}/>
         <br/>
-              <li>Las sesiones son de 30 minutos</li>
+        <li>Las sesiones son de 30 minutos</li>
         <br/>
-             
       </div>
-      
     </div> 
-    
   );
 }
 

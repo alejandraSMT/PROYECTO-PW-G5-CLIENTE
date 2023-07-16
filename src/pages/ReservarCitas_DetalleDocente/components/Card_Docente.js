@@ -1,72 +1,73 @@
-import {Component} from "react";
-import Curso from "./Curso";
-import perfil from "./images/perfil.png";
+import React, { Component } from "react";
+//import Curso from "./Curso";
+//import perfil from "./images/perfil.png";
 import iniciales from "./images/iniciales_logo.png";
+//const cursos = ["CURSO #1", "CURSO #2","CURSO #3", "CURSO #4"];
 
-export class Card_Docente extends Component{
-
-    render(){ //obligatorio
-        return (
-            <div class="container" id="container-docente"> 
-                <hr id="linea-encabezado"/>
-                <div id="lado-izquierda">
-                    
-                    <div class="col">
-
-                        <p id="logo-forma">
-                        
-                        <img src={iniciales} class="rounded-circle" id="estilo-logo"/>
-                            <div>
-                            <div><b>Nombre del profesor</b></div>
-                            <div id="titulo-docente">Titulo</div>
-                            </div>
-                        </p>
-                            
-                    </div>
-
+class Card_Docente extends Component {
+  render() {
+    const { profesor } = this.props; // Recibir la prop 'profesor'
+    
+    return (
+      <div className="container" id="container-docente">
+        <hr id="linea-encabezado" />
+        <div id="lado-izquierda"> 
+          <div className="col">
+            <p id="logo-forma">
+              <img src={iniciales} className="rounded-circle" id="estilo-logo" />
+              <div>
+                <div>
+                  <b>{this.props.profesor.nombreCompleto}</b> {/* Utilizar la propiedad 'nombres' del profesor */}
                 </div>
-                
-                <div class="row align-items-start">
+                <div id="titulo-docente">{this.props.profesor.tituloPerfil}</div>
+              </div>
+            </p>
+          </div>
+        </div>
 
-                        <div class="col">
-                            <img src={perfil} class="img-thumbnail" id="foto-docente"/>
-                        </div>
+        <div className="row align-items-start">
+          <div className="col">
+            <img src={this.props.profesor.imgPerfil} className="img-thumbnail" id="foto-docente" />
+          </div>
 
-                        <div class="col" id="descripcion-docente">
-                            Profesor que estudio en la universidad de Lima la carrera de ingenieria de sistemas y
-                            se graduo a los 22 años culminanndo con exito su carrera y actualmente trabajando en BCP.
-                            Cuenta con una maestria en Programacion Web y Movil. "Descripcion"
-                        </div>
+          <div className="col" id="descripcion-docente">
+            {this.props.profesor.presenPerfil}
+          </div>
 
-                        <div class="col">
-                            
-                            Correo electronico
-                            <br/>
-                            <b><u>correo@gmail.com</u></b>
-                        </div>
-                </div>
-                <br/>
+          <div className="col">
+            Correo electrónico
+            <br />
+            <b>
+              <u>{this.props.profesor.correo}</u>
+            </b>
+          </div>
+        </div>
 
-                <div  class="row align-items-start">
-                    <div class="col" id="lado-izquierda">
-                    Cursos:
-                    </div>  
-                </div>
-                
-                
-                <div class="row align-items-start justify-content-center" >
-                <div class="col-12 text-center">
-                  <Curso/> 
-                  
-                </div>
-                         
-                </div>
-                    
-                <br/>
-            </div>
+        <br />
+
+        <div className="row align-items-start">
+          <div className="col" id="lado-izquierda">
+            Cursos:
             
-        );
-    }
+          </div>
+        </div>
+        <br/>
+        <div className="row align-items-start">
+          <div className="col mx-auto">
+          <div className="lista-container">
+             {this.props.profesor.UsuarioCursos?.map((curso, index) => (
+              <div key={index} className="lista-elemento">
+              <b>{curso.Curso.nombreCurso}</b>
+          </div>
+            ))}
+        </div>
+  </div>
+</div>
+
+        <br />
+      </div>
+    );
+  }
 }
 
 export default Card_Docente;

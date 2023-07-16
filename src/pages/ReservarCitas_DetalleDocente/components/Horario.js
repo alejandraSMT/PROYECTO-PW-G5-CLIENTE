@@ -1,7 +1,7 @@
 import {Component} from "react";
 import Form from 'react-bootstrap/Form';
 
-const cursos = ["CURSO #1", "CURSO #2","CURSO #3", "CURSO #4"];
+//const cursos = ["CURSO #1", "CURSO #2","CURSO #3", "CURSO #4"];
 const horarios = ["HORARIO #1", "HORARIO #2","HORARIO #3", "HORARIO #4"];
 
 export class Horario extends Component{
@@ -17,6 +17,9 @@ export class Horario extends Component{
     };
     
     render(){ //obligatorio
+
+        const { profesor } = this.props; // Recibir la prop 'profesor'
+
         return (
             <div class="container">
 
@@ -40,15 +43,14 @@ export class Horario extends Component{
                         <Form.Label>Curso de interes
                         </Form.Label>
                         <Form.Control as="select" id="cursito">
-                        
-                            <option value="" disabled selected>
-                                Seleccione un curso
+                        <option value="" disabled selected>
+                            Seleccione un curso
+                        </option>
+                        {profesor.UsuarioCursos?.map((curso, index) => (
+                            <option key={index} value={curso.Curso.nombreCurso}>
+                            {curso.Curso.nombreCurso}
                             </option>
-                            {cursos.map((curso, index) => (
-                                <option key={index} value={curso}>
-                                {curso}
-                                </option>
-                            ))}
+                        ))}
                         </Form.Control>
                         </Form.Group>
                     </div>
