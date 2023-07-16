@@ -1,6 +1,6 @@
-import { alignPropType } from 'react-bootstrap/esm/types.js';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-//Joaquin
+import { alignPropType } from "react-bootstrap/esm/types.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+/*//Joaquin
 import Login from './pages/login/login.js';
 //export default Login;
 
@@ -53,30 +53,35 @@ import NoCitasView from "./pages/VisualizarCitas/main_views/NoCitasView";
 //export default Profile;
 
 
-
+*/
 //Cristopher
-import Horarios from './pages/HorarioDocente/main-views/HorarioDocente.js';
+import Horarios from "./pages/HorarioDocente/main-views/HorarioDocente.js";
 //export default Horarios;
 
-export default function App(){
-    return (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    // Joaquin
-                    <Route index element = {<Registro />} />
-                    <Route path = "/registro" element = {<Registro />} />
-                    <Route path = "/login" element = {<Login />} />
+export default function App() {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/horarios" element={<Horarios />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+/*
+// Joaquin
+<Route index element = {<Registro />} />
+<Route path = "/registro" element = {<Registro />} />
+<Route path = "/login" element = {<Login />} />
 
-                    // Frank
-                    <Route path = "/reservar" element = {<ReservarCitas_DetalleDocente />} />
+// Frank
+<Route path = "/reservar" element = {<ReservarCitas_DetalleDocente />} />
 
-                    // Gonzalo
+// Gonzalo
 
-                    // Cristopher
-                    <Route path = "/horarios" element = {<Horarios />} />
-
-                    // Alfredo
+// Cristopher
+ // Alfredo
                     <Route path = "/comentarios" element = {<ComentariosPage />} />
                     <Route path = "/bienvenidaProfesor" element = {<BienvenidaDocente />} />
                     <Route path = "/bienvenidaAlumno" element = {<BienvenidaAlumno />} />
@@ -88,8 +93,4 @@ export default function App(){
 
                     // Andrea
 
-                </Routes>
-            </BrowserRouter>
-        </div>
-    )
-}
+*/

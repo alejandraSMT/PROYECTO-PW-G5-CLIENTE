@@ -2,18 +2,20 @@
 
 .col-card-contador {
   background-color:  #9274e4;
-  text-align: center;
   font-weight: bold;
-  width: 33px;
+  width: 34px;
   height: 28px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card-row{
+.card-row {
   background-color: #fef7ff;
 }
 
-.card{
+.card {
   border-color: #fef7ff;
   border-radius: 0%;
 }
