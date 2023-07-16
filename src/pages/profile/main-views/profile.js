@@ -8,7 +8,7 @@ import Header from '../../Header/Header';
 
 function Perfil(){ //todo esto es la pantalla
     return(
-        <div>
+        <div className="contenedorPerfil">
             <Header />
             <div id="cuerpo">
                 

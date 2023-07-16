@@ -13,7 +13,7 @@ export class PersonalInfo extends Component {
     render(){
         return(
 
-            <div class = "container">
+            <div class = "contenedorPerfil">
 
                     <p>Información personal</p>
                 
