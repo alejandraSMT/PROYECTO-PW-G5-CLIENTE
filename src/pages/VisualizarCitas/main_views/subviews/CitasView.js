@@ -1,7 +1,7 @@
 import {Component} from "react";
 import { CitasCard } from "../../components/card/CitasCard";
 
-const CitasView = ({ citasProfesores }) => {
+const CitasView = ({ citasProfesores, showCal, setShowCal}) => {
 
     return(
         <div class="container">
@@ -14,6 +14,8 @@ const CitasView = ({ citasProfesores }) => {
                             horario = {citasProfesores.horario}
                             curso = {citasProfesores.curso}
                             calificacion = {citasProfesores.calificacion}
+                            showCal={showCal}
+                            setShowCal={setShowCal}
                         />
                     </div>
                 ))}

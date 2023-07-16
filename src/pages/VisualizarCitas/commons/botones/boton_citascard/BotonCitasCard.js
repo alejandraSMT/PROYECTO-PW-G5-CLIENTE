@@ -3,8 +3,8 @@ import {useState} from "react";
 import { Calificar } from "../../../components/calificar/Calificar";
 import './BotonCitasCard.css';
 
-function BotonCitasCard({opcion}){
-    const [show,setShow] = useState(false);
+function BotonCitasCard({opcion, show, setShow}){
+    //const [show,setShow] = useState(false);
 
     const ShowCard=() =>{
         if(show==true){
@@ -12,16 +12,14 @@ function BotonCitasCard({opcion}){
         }else{
             setShow(true);
         }
+        console.log(show)
     }
 
     let button;
         if(opcion=="cancelar"){
             button = <button class="button" id="cancelar">Cancelar</button>
         }else{
-            button = <button onClick={ShowCard} class="button" id="calificar" >Calificar</button>
-            {
-                show && (<Calificar/>)
-            }
+            button = <button  onClick={ShowCard} class="button" id="calificar" >Calificar</button>
         }
 
     return (

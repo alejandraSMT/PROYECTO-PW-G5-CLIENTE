@@ -3,9 +3,14 @@ import "./CitasCard.css"
 import logo from "./morado.png"
 import logo1 from './flowers_placeholder.jpg'
 import BotonCitasCard from "../../commons/botones/boton_citascard/BotonCitasCard";
+import { useState } from "react";
+import { Calificar } from "../calificar/Calificar";
 
-export function CitasCard({ nombre, carrera, horario, curso, calificacion}){
-    return(
+export function CitasCard({ nombre, carrera, horario, curso, calificacion, showCal, setShowCal}) {
+
+    //const [showCal, setShowCal] = useState(false)
+
+    return (
         <>
             <div class="card" >
                 <div class="container">
@@ -13,19 +18,19 @@ export function CitasCard({ nombre, carrera, horario, curso, calificacion}){
                         <div class="col-3 mt-3">
                             <div class="member d-flex align-items-start ps-2">
                                 <div class="memberpic">
-                                    <img class="rounded-circle" src={logo}/>
+                                    <img class="rounded-circle" src={logo} />
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 mt-2 d-flex align-items-start">
                             <div class="member-info">
-                                    <h5 class="card-title">{nombre}</h5>
-                                    <p class="card-text text-start pb-2"><small class="text-muted">{carrera}</small></p>
-                                </div>
+                                <h5 class="card-title">{nombre}</h5>
+                                <p class="card-text text-start pb-2"><small class="text-muted">{carrera}</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <img src={logo1} class="img-fluid"/>
+                <img src={logo1} class="img-fluid" />
                 <div class="card-body d-flex">
                     <div class="cita-info">
                         <h5 class="card-title text-start">{horario}</h5>
@@ -41,10 +46,10 @@ export function CitasCard({ nombre, carrera, horario, curso, calificacion}){
                             </div>
                             <div class="col text-end">
                                 <BotonCitasCard
-                                    opcion="calificar"
+                                    opcion="calificar" show={showCal} setShow={setShowCal}
                                 />
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

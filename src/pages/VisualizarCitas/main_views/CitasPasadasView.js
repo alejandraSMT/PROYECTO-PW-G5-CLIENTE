@@ -3,8 +3,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import CitasHeader from "../commons/citas_header/CitasHeader";
 import CitasView from "./subviews/CitasView";
 import Header from "../../Header/Header";
+import { useState } from "react";
+import { Calificar } from "../components/calificar/Calificar";
 
 function CitasPasadasView() {
+
+  const [showCal, setShowCal] = useState(false)
+
   const citasProfesores = [
     {
       nombre: 'John Doe',
@@ -24,11 +29,17 @@ function CitasPasadasView() {
 
   return (
     <div className="w-100">
-      <Header/>
-      <CitasHeader/>
-      <CitasView citasProfesores = {citasProfesores}/>
+      <Header />
+      <CitasHeader />
+      <CitasView citasProfesores={citasProfesores} showCal={showCal} setShowCal={setShowCal} />
+      <div className="">
+        {
+          showCal ? (<Calificar />) : <></>
+        }
+      </div>
     </div>
-    
+
+
   );
 }
 
