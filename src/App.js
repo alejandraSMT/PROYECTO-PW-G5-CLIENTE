@@ -1,26 +1,21 @@
 import { alignPropType } from "react-bootstrap/esm/types.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-/*//Joaquin
-import Login from './pages/login/login.js';
+//Joaquin
+import Login from "./pages/login/login.js";
 //export default Login;
 
-import Registro from './pages/registro/registro.js';
+import Registro from "./pages/registro/registro.js";
 //export default Registro;
 
-
 //Frank
-import ReservarCitas_DetalleDocente from './pages/ReservarCitas_DetalleDocente/main-views/ReservarCitas_DetalleDocente_View.js'
+import ReservarCitas_DetalleDocente from "./pages/ReservarCitas_DetalleDocente/main-views/ReservarCitas_DetalleDocente_View.js";
 //export default ReservarCitas_DetalleDocente;
 
-
-
 //Alfredo
-import ComentariosPage from './pages/Comentarios/main-view/ComentarioPage.js';
-import BienvenidaDocente from './pages/Bienvenidos/main-view/BienvenidaDocente.js';
-import BienvenidaAlumno from './pages/Bienvenidos/main-view/BienvenidaAlumno.js';
+import ComentariosPage from "./pages/Comentarios/main-view/ComentarioPage.js";
+import BienvenidaDocente from "./pages/Bienvenidos/main-view/BienvenidaDocente.js";
+import BienvenidaAlumno from "./pages/Bienvenidos/main-view/BienvenidaAlumno.js";
 //export default ComentariosPage;
-
-
 
 //Alejandra
 //AlumnoCitasView
@@ -31,7 +26,6 @@ import AlumnoCitasView from "./pages/VisualizarCitas/main_views/AlumnoCitasView"
 import CitasPasadasView from "./pages/VisualizarCitas/main_views/CitasPasadasView";
 //export default CitasPasadasView;
 
-
 // DocentesCitasView
 import DocenteCitasView from "./pages/VisualizarCitas/main_views/DocenteCitasView";
 //export default DocenteCitasView;
@@ -40,20 +34,14 @@ import DocenteCitasView from "./pages/VisualizarCitas/main_views/DocenteCitasVie
 import NoCitasView from "./pages/VisualizarCitas/main_views/NoCitasView";
 //export default NoCitasView;
 
-
-
 //Andrea
 //import MisCitas from './pages/Citas/MisCitas.js';
 //export default MisCitas;
-
-
 
 //Gonzalo
 //import Profile from './pages/profile/main-views/profile';
 //export default Profile;
 
-
-*/
 //Cristopher
 import Horarios from "./pages/HorarioDocente/main-views/HorarioDocente.js";
 //export default Horarios;
@@ -63,34 +51,26 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
+          // Joaquin
+          <Route index element={<Registro />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/login" element={<Login />} />
+          // Frank
+          <Route path="/reservar" element={<ReservarCitas_DetalleDocente />} />
+          // Gonzalo // Cristopher
           <Route path="/horarios" element={<Horarios />} />
+          // Alfredo
+          <Route path="/comentarios" element={<ComentariosPage />} />
+          <Route path="/bienvenidaProfesor" element={<BienvenidaDocente />} />
+          <Route path="/bienvenidaAlumno" element={<BienvenidaAlumno />} />
+          // Alejandra
+          <Route path="/alumnos" element={<AlumnoCitasView />} />
+          <Route path="/citaspasadas" element={<CitasPasadasView />} />
+          <Route path="/docentecitas" element={<DocenteCitasView />} />
+          <Route path="/nocitas" element={<NoCitasView />} />
+          // Andrea
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
-/*
-// Joaquin
-<Route index element = {<Registro />} />
-<Route path = "/registro" element = {<Registro />} />
-<Route path = "/login" element = {<Login />} />
-
-// Frank
-<Route path = "/reservar" element = {<ReservarCitas_DetalleDocente />} />
-
-// Gonzalo
-
-// Cristopher
- // Alfredo
-                    <Route path = "/comentarios" element = {<ComentariosPage />} />
-                    <Route path = "/bienvenidaProfesor" element = {<BienvenidaDocente />} />
-                    <Route path = "/bienvenidaAlumno" element = {<BienvenidaAlumno />} />
-                    // Alejandra
-                    <Route path = "/alumnos" element = {<AlumnoCitasView />} />
-                    <Route path = "/citaspasadas" element = {<CitasPasadasView />} />
-                    <Route path = "/docentecitas" element = {<DocenteCitasView />} />
-                    <Route path = "/nocitas" element = {<NoCitasView />} />
-
-                    // Andrea
-
-*/
