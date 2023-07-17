@@ -1,4 +1,6 @@
-#cuerpo{
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.contenedorPerfil #cuerpo{
     /*position: absolute;*/
     margin-top: 20%;
     width: 75%;
@@ -10,7 +12,7 @@
 /*personal_info.css*/
 
 /* Atributos del recuadro de texto */
-.form-control {
+.contenedorPerfil .form-control {
     border-color: purple;
     border-radius: 3px;
     color: purple;
@@ -20,7 +22,7 @@
 }
 
 /* Atributos del texto (label) en el borde superior */
-.form-label {
+.contenedorPerfil .form-label {
     background-color: white;
     padding-left: 5px;
     padding-right: 5px;
@@ -31,56 +33,50 @@
 }
 
 /*segun W3School para quese vea bien la foto del profesor a la derecha*/
-.container{
+.contenedorPerfil .container{
     position: relative;
 }
 
 /*esto es para que los forms no estén tan separados entre sí*/
-.col{
+.contenedorPerfil .col{
     max-width: 265px;
     max-height: 70px;
 }
 
 /*izquierda y derecha es para poner la foto del profesor del lado derecho*/
-.izquierda{
+.contenedorPerfil .izquierda{
     position: absolute;
     left: auto;
 }
 
-.derecha{
+.contenedorPerfil .derecha{
     position: absolute;
     right: 70px;
 }
 
-.izquierda_uni{
+.contenedorPerfil .izquierda_uni{
     position: absolute;
     width: 80%;
     
 }
 
-.derecha_uni{
+.contenedorPerfil .derecha_uni{
     position: absolute;
     left: 55%;
     
 }
 
-/*
-.row{
-    border: 1px solid #000;
-}
-*/
-
-p{
+.contenedorPerfil p{
     font-weight: bold;
 }
 
-#adjuntar{
+.contenedorPerfil #adjuntar{
     text-align: center;
     margin-top: 10px;
     color: #A114B5;
 }
 
-#pruebitaid{
+.contenedorPerfil #pruebitaid{
     width: 500px;
 }
 span{
@@ -93,7 +89,7 @@ span{
 
 /*tabs.css*/
 /*da formato a todo lo que abarcan los tabs*/
-.Tabs{
+.contenedorPerfil .Tabs{
     margin-top: 210px;/*se hace esto para compensar por el position: auto de la sección de arriba (izquierda y derecha)*/
     background: #FEF7FF;
     height: auto;
@@ -101,7 +97,7 @@ span{
 }
 
 /*formato de los tabs*/
-ul.nav li{
+.contenedorPerfil ul.nav li{
     width: 170px;
     height: 50px;
     text-align: center;
@@ -111,36 +107,36 @@ ul.nav li{
 }
 
 /*cambia el color de las tabs al pasar el mouse encima*/
-ul.nav li:hover {
+.contenedorPerfil ul.nav li:hover {
     background: rgba(50, 224, 196, 0.15);
 }
 
 /*resalta la tab que esté seleccionada*/
-ul.nav li.active {
+.contenedorPerfil ul.nav li.active {
     color: purple;
     font-weight: bold;
     /*background-color: #A114B5;*/
     border-bottom:4px solid #A114B5;
 }
 
-.linea{
+.contenedorPerfil .linea{
     border-left: 1px solid #000;
     height: 250px;
     position: absolute;
     left: 53%;
 }
 
-li{
+.contenedorPerfil li{
     padding-top: 10px;
 }
 
 
-#titulo, #presentacion{
+.contenedorPerfil #titulo, #presentacion{
     
     width: 95%;
 }
 
-#universidad, #carrera{
+.contenedorPerfil #universidad, #carrera{
     width: 230%;
 }
 
