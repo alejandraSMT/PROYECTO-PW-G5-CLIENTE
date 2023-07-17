@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+//import perfil from "./images/perfil.png";
 import iniciales from "./images/iniciales_logo.png";
+//const cursos = ["CURSO #1", "CURSO #2","CURSO #3", "CURSO #4"];
 
 class Card_Docente extends Component {
   render() {
@@ -45,22 +47,22 @@ class Card_Docente extends Component {
         <div className="row align-items-start">
           <div className="col" id="lado-izquierda">
             Cursos:
-            
+
           </div>
         </div>
-        <br/>
+        <br />
         <div className="row align-items-start">
           <div className="col mx-auto">
-          <div className="lista-container">
-             {profesor?.Usuario?.UsuarioCursos?.map((curso, index) => (
-              <div key={index} className="lista-elemento">
-              <b>{curso?.Curso?.nombreCurso}</b>
+            <div className="lista-container">
+              {profesor?.Usuario?.UsuarioCursos?.map((curso, index) => (
+                <div key={index} className="lista-elemento">
+                  <b>{curso?.Curso?.nombreCurso}</b>
+                </div>
+              ))}
+            </div>
           </div>
-            ))}
         </div>
-  </div>
-</div>
-              
+
         <br />
       </div>
     );

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form';
-
-const horarios = ["HORARIO #1", "HORARIO #2", "HORARIO #3", "HORARIO #4"];
+import { useEffect, useState } from 'react';
+import { getDateComponents } from "../../../utils/funcionesBienUtiles";
 
 export class Horario extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +14,7 @@ export class Horario extends Component {
 
   handleCursoSeleccionado = (event) => {
     const cursoId = event.target.value;
+    this.setState({ cursoSeleccionado: cursoId });
     const nombreCurso = event.target.options[event.target.selectedIndex].text;
     this.setState({ cursoSeleccionado: cursoId, nombreCursoSeleccionado: nombreCurso });
   };
@@ -20,14 +22,13 @@ export class Horario extends Component {
   MostrarReserva = (horario_valor) => {
     const fechaInput = document.getElementById("fecha");
     const fecha_valor = fechaInput.value;
-    const curso_valor = this.state.cursoSeleccionado;
     const nombreCurso = this.state.nombreCursoSeleccionado;
     alert(
       'Reserva de cita' + '\n' +
       'Usted ha reservado la cita exitosamente para el ' +
       fecha_valor +
       ' a las ' +
-      horario_valor +
+      horario_valor.horaInicio +":00 horas"+
       ' para el curso ' +
       nombreCurso +
       '. Encontrará el detalle en su página de citas.'
@@ -35,15 +36,25 @@ export class Horario extends Component {
   };
 
   render() {
-    const { profesor } = this.props; // Recibir la prop 'profesor'
 
+
+    function handleChangeDatePicker(event) {
+      var selectedDate = getDateComponents(event.target.value)
+      var dia = selectedDate.diaNumero
+      var mes = selectedDate.mes
+      var anio = selectedDate.year
+      var diaSemana = selectedDate.diaSemana
+      obtenerHorarios(diaSemana, dia, mes, anio)
+    }
+
+    const { profesor, obtenerHorarios, horarios } = this.props; // Recibir la prop 'profesor'
     return (
       <div className="container">
         <div className="row">
           <div className="col">
             <Form.Group>
               <Form.Label>Ingrese una Fecha</Form.Label>
-              <Form.Control type="date" id="fecha" />
+              <Form.Control type="date" id="fecha" onChange={handleChangeDatePicker} />
             </Form.Group>
             <div className="footer" id="footer-form">
               DD/MM/YY
@@ -67,27 +78,26 @@ export class Horario extends Component {
                 ))}
               </Form.Control>
             </Form.Group>
-            
             {/* <div>Curso seleccionado: {this.state.cursoSeleccionado}</div> ---> Agregado para mostrar el curso seleccionado para probar que lo agarre */}
           </div>
         </div>
 
         <br />
-                    
+
         <div className="row">
           <div className="lista-container">
-            {horarios.map((elemento, index) => (
+            {horarios.map((horario, index) => (
               <button
-                onClick={() => this.MostrarReserva(elemento)}
+                onClick={() => this.MostrarReserva(horario)}
                 key={index}
                 className="estilo-horario"
                 id="horario"
               >
-                <b>{elemento}</b>
+                <b>{horario.horaInicio}:00</b>
               </button>
             ))}
           </div>
-          
+
         </div>
       </div>
     );
@@ -95,4 +105,3 @@ export class Horario extends Component {
 }
 
 export default Horario;
-
