@@ -25,27 +25,25 @@ function Perfil(){ //todo esto es la pantalla
         .catch(error => console.log('Ocurrió un error:', error));
     }
 
-    // function handleSubmit(parametros) {
+    function verificarEstado(response) {
+    if (!response.ok) {
+        throw Error('Ocurrió un error: ' + response.statusText);
+    }
+    return response;
+    }
 
-    //     const nombres = parametros.nombres;
-    //     const apellidos = parametros.apellidos;
+    function handleSubmit(parametros) {
 
-    //     fetch('http://localhost:3001/obtener-datos-info-personal/' + nombreUsu + '/' + nombres + '/' + apellidos, {
-    //     method: "post",
-    //     body: objJson,
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     })
-    //   .then(verificarEstado)
-    //   .then(() => {
-    //     window.alert("Usuario modificado");
-    //     myForm.reset();
-    //   })
-    //   .catch(handleError);
-    // }
+        // const nombres = parametros.nombres;
+        // const apellidos = parametros.apellidos;
 
-
+    fetch(`http://localhost:3001/datos-info-personal/${nombreUsu}/${parametros}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(error => console.log('Ocurrió un error:', error))
+    }
 
 
     return(
@@ -56,9 +54,9 @@ function Perfil(){ //todo esto es la pantalla
                 <h1>
                     Mi perfil
                 </h1>
-                <button type="submit">Guardar</button>
+                {/* <button type="submit" onClick={obtenerPersonalInfo}>Guardar</button> */}
                 <hr></hr>
-                <PersonalInfo personalInfo = {personalInfo} />
+                <PersonalInfo personalInfo = {personalInfo} onSubmit={handleSubmit} />
                 <br></br>
                 <Tabs />
             </div>
