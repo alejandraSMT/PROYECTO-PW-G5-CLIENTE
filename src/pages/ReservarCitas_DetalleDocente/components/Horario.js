@@ -13,13 +13,15 @@ export class Horario extends Component {
 
   handleCursoSeleccionado = (event) => {
     const cursoId = event.target.value;
-    this.setState({ cursoSeleccionado: cursoId });
+    const nombreCurso = event.target.options[event.target.selectedIndex].text;
+    this.setState({ cursoSeleccionado: cursoId, nombreCursoSeleccionado: nombreCurso });
   };
 
   MostrarReserva = (horario_valor) => {
     const fechaInput = document.getElementById("fecha");
     const fecha_valor = fechaInput.value;
     const curso_valor = this.state.cursoSeleccionado;
+    const nombreCurso = this.state.nombreCursoSeleccionado;
     alert(
       'Reserva de cita' + '\n' +
       'Usted ha reservado la cita exitosamente para el ' +
@@ -27,7 +29,7 @@ export class Horario extends Component {
       ' a las ' +
       horario_valor +
       ' para el curso ' +
-      curso_valor +
+      nombreCurso +
       '. Encontrará el detalle en su página de citas.'
     );
   };
@@ -65,6 +67,7 @@ export class Horario extends Component {
                 ))}
               </Form.Control>
             </Form.Group>
+            
             {/* <div>Curso seleccionado: {this.state.cursoSeleccionado}</div> ---> Agregado para mostrar el curso seleccionado para probar que lo agarre */}
           </div>
         </div>
@@ -92,3 +95,4 @@ export class Horario extends Component {
 }
 
 export default Horario;
+
