@@ -1,5 +1,6 @@
 import { alignPropType } from "react-bootstrap/esm/types.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 //Joaquin
 import Login from "./pages/login/login.js";
 //export default Login;
@@ -51,26 +52,30 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          // Joaquin
-          <Route index element={<Registro />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/login" element={<Login />} />
-          // Frank
-          <Route path="/reservar" element={<ReservarCitas_DetalleDocente />} />
-          // Gonzalo // Cristopher
-          <Route path="/horarios" element={<Horarios />} />
-          // Alfredo
-          <Route path="/comentarios" element={<ComentariosPage />} />
-          <Route path="/bienvenidaProfesor" element={<BienvenidaDocente />} />
-          <Route path="/bienvenidaAlumno" element={<BienvenidaAlumno />} />
           // Alejandra
           <Route path="/alumnos" element={<AlumnoCitasView />} />
           <Route path="/citaspasadas" element={<CitasPasadasView />} />
           <Route path="/docentecitas" element={<DocenteCitasView />} />
           <Route path="/nocitas" element={<NoCitasView />} />
-          // Andrea
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
+
+/*
+// Joaquin
+<Route index element={<Registro />} />
+<Route path="/registro" element={<Registro />} />
+<Route path="/login" element={<Login />} />
+// Frank
+<Route path="/reservar" element={<ReservarCitas_DetalleDocente />} />
+// Gonzalo 
+// Alfredo
+<Route path="/comentarios" element={<ComentariosPage />} />
+<Route path="/bienvenidaProfesor" element={<BienvenidaDocente />} />
+<Route path="/bienvenidaAlumno" element={<BienvenidaAlumno />} />
+// Cristopher
+          <Route path="/horarios" element={<Horarios />} />
+
+*/

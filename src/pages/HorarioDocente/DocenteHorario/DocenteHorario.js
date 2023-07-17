@@ -16,7 +16,7 @@ export function DocenteHorario() {
     enlace: "",
   });
 
-  const [horarios, setHorarios] = useState([]);
+  const [horarios, setHorarios] = useState([]); //Eso useState permite que se vean los horarios q se van añadiendo
 
   const handleInput = (event) => {
     const { name, value } = event.target;
@@ -26,16 +26,50 @@ export function DocenteHorario() {
     }));
   };
 
-  const handleAgregarClick = () => {
-    const newHorario = { ...dataFormulario };
-    setHorarios((prevHorarios) => [...prevHorarios, newHorario]);
+
+  function verficarEstado(respuesta) {
+    if (!respuesta.ok) {
+      throw Error("Error: " + respuesta.statusText);
+    }
+    return respuesta;
+  }
+
+  //Funcion para mostrar la DATA
+  function procesarDato(data) {
+    setHorarios((prevHorarios) => [...prevHorarios, data]);
     setDataFormulario({
-      dia: "",
-      horaInicio: "",
-      horaFin: "",
-      enlace: "",
+        dia: "",
+        horaInicio: "",
+        horaFin: "",
+        enlace: "",
     });
-  };
+  }
+
+  //Funcion para mostrar si hay un error
+  function handleError(error) {
+    console.log("Ocurrio un error: " + error);
+  }
+
+  const handleAgregarClick = async () => {
+
+    let dia = document.getElementById("dia").value;
+    let horaInicio = document.getElementById("horaInicio").value;
+    let horaFin = document.getElementById("horaFin").value;
+    let enlace = document.getElementById("enlace").value;
+
+    const url = `http://localhost:3005/horario/${dia}/${horaInicio}/${horaFin}/${enlace}`;
+    console.log(url);
+
+    fetch(url)
+      .then(verficarEstado)
+      .then((response)=> response.json())
+      .then(procesarDato)
+      .catch(handleError)
+    }
+ 
+
+  ///FALTA HACER UN FETCH PARA MOSTRAR LOS HORARIOS QUE YA ESTAN EN LA BASE DE DATOS
+
 
   return (
     <Container className="container">
@@ -44,6 +78,7 @@ export function DocenteHorario() {
           <Form.Group className="formulario">
             <Form.Label className="label">D&iacute;a de semana</Form.Label>
             <Form.Control
+              id="dia"
               className="control"
               type="text"
               placeholder="Lunes"
@@ -57,6 +92,7 @@ export function DocenteHorario() {
           <Form.Group className="formulario">
             <Form.Label className="label">Hora Inicio</Form.Label>
             <Form.Control
+              id="horaInicio"
               className="control"
               type="text"
               placeholder="9:00 am"
@@ -70,6 +106,7 @@ export function DocenteHorario() {
           <Form.Group className="formulario">
             <Form.Label className="label">Hora Fin</Form.Label>
             <Form.Control
+              id="horaFin"
               className="control"
               type="text"
               placeholder="11:00 am"
@@ -83,6 +120,7 @@ export function DocenteHorario() {
           <Form.Group className="formulario">
             <Form.Label className="label">Enlace de sesi&oacute;n</Form.Label>
             <Form.Control
+              id="enlace"
               className="control"
               type="text"
               placeholder="URL"
@@ -102,8 +140,9 @@ export function DocenteHorario() {
 
       {horarios.map((horario, index) => (
         <HorarioCard
+          id = {index}
           key={index}
-          contador={index + 1}
+          contador={horario.id}
           dia={horario.dia}
           horaInicio={horario.horaInicio}
           horaFin={horario.horaFin}

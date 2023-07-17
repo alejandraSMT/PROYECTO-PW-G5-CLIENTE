@@ -1,32 +1,228 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import CitasHeader from "../commons/citas_header/CitasHeader";
-import CitasViewAlumno from "./subviews/CitasViewAlumno";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { useState } from "react";
+//import CitasView from "./CitasView";
 import Header from "../../Header/Header";
+import NoCitasView from "./NoCitasView";
+import "../main_views/Views.css";
+import { CitasCard } from "../components/card/CitasCard";
 
-function DocenteCitasView(){
-    const citasAlumnos = [
-        {
-          nombre: 'Juan Lopez',
-          carrera: 'Estudiante de Ingeniería Informática',
-          horario: 'Lunes 24 de abril de 2023 - 08:00am',
-          curso: 'Informática para la gestión'
+function DocenteCitasView() {
+  var [dataAlumno, setDataAlumno] = useState({
+    id: "",
+    nombres: "",
+    apellidos: "",
+    cita: {
+      id: "",
+      dia: "",
+      mes: "",
+      anio: "",
+      diaSemana: "",
+      hora: "",
+      status: "",
+      nombreCurso: "",
+      calificacion: "",
+      persona: {
+        id: "",
+        nombres: "",
+        apellidos: "",
+        imgPerfil: "",
+        tituloPerfil: "",
+      },
+    },
+  });
+
+  var [citasAlumnos, setCitasAlumnos] = useState([]);
+
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+    setDataAlumno((prevDataAlumno) => ({
+      ...prevDataAlumno,
+      [name]: value,
+    }));
+  };
+
+  function verficarEstado(respuesta) {
+    if (!respuesta.ok) {
+      throw Error("Error: " + respuesta.statusText);
+    }
+    return respuesta;
+  }
+
+  //Funcion para mostrar la DATA
+  function procesarDato(data) {
+    setCitasAlumnos((prevCitasAlumnos) => [...prevCitasAlumnos, data]);
+    setDataAlumno({
+      id: "",
+      nombres: "",
+      apellidos: "",
+      cita: {
+        id: "",
+        dia: "",
+        mes: "",
+        anio: "",
+        diaSemana: "",
+        hora: "",
+        status: "",
+        nombreCurso: "",
+        calificacion: "",
+        persona: {
+          id: "",
+          nombres: "",
+          apellidos: "",
+          imgPerfil: "",
+          tituloPerfil: "",
         },
-        {
-          nombre: 'Adriana Sánchez',
-          carrera: 'Estudiante de Ingeniería de Sistemas',
-          horario: 'Lunes 27 de abril de 2023 - 04:00pm',
-          curso: 'Comunicación de datos'
-        }
-      ]
+      },
+    });
+  }
 
-      return(
-        <div className="w-100">
-            <Header/>
-            <CitasHeader/>
-            <CitasViewAlumno citasProfesores={citasAlumnos}/>
-        </div>
-      )
+  //Funcion para mostrar si hay un error
+  function handleError(error) {
+    console.log("Ocurrio un error: " + error);
+  }
+
+  const handleVerCitasPasadas = async () => {
+    const url = `http://localhost:3005/citas-pasadas/`;
+    console.log(url);
+
+    fetch(url)
+      .then(verficarEstado)
+      .then((response) => response.json())
+      .then(procesarDato)
+      .catch(handleError);
+  };
+
+  citasAlumnos = [
+    {
+      id: "",
+      nombres: "Juan Pablo",
+      apellidos: "Lopez Marquez",
+      cita: {
+        id: "",
+        dia: "22",
+        mes: "7",
+        anio: "2013",
+        diaSemana: "Lunes",
+        hora: "7",
+        status: "",
+        nombreCurso: "Mate Basica",
+        calificacion: "",
+        persona: {
+          id: "",
+          nombres: "Marquitos",
+          apellidos: "Lopez",
+          imgPerfil: "",
+          tituloPerfil: "",
+        },
+      },
+    },
+    {
+      id: "",
+      nombres: "Juan Pablo",
+      apellidos: "Lopez Marquez",
+      cita: {
+        id: "",
+        dia: "22",
+        mes: "7",
+        anio: "2013",
+        diaSemana: "Lunes",
+        hora: "7",
+        status: "",
+        nombreCurso: "Mate Basica",
+        calificacion: "",
+        persona: {
+          id: "",
+          nombres: "Marquitos",
+          apellidos: "Lopez",
+          imgPerfil: "",
+          tituloPerfil: "",
+        },
+      },
+    },
+  ];
+
+  return (
+    <div className="w-100">
+      <Header />
+      <div>
+        {citasAlumnos.length > 0 ? (
+          <>
+            <div className="general">
+              <div className="container">
+                <div className="row w-100 pt-4">
+                  <div className="col-6 pb-3">
+                    <header className="header text-start">Mis Citas</header>
+                  </div>
+                  <div
+                    id="botonProgramarCita"
+                    className="col-6 justify-content-end"
+                  >
+                    <button type="button" id="programacita" className="btn">
+                      Programar una Cita
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <hr className="divider" />
+              <div className="container">
+                <div className="row w-100">
+                  <div className="col-6">
+                    <header className="subheader text-start">
+                      Citas de asesoría reservada:{" "}
+                    </header>
+                  </div>
+                  <div
+                    id="botonTipoCitas"
+                    className="col-6 justify-content-end"
+                  >
+                    <button
+                      type="button"
+                      id="verCita"
+                      className="btn"
+                      onClick={handleVerCitasPasadas}
+                    >
+                      Ver citas pasadas
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row d-flex justify-content-right g-3 ps-5">
+              {citasAlumnos.map((cita, index) => (
+                <div key={index} class="col-md-4">
+                  <CitasCard
+                    id={index}
+                    nombre={cita.nombre}
+                    apellidos={cita.apellidos}
+                    cita={cita.cita.id}
+                    dia={cita.cita.dia}
+                    mes={cita.cita.mes}
+                    anio={cita.cita.anio}
+                    diaSemana={cita.cita.diaSemana}
+                    hora={cita.cita.hora}
+                    status={cita.cita.status}
+                    nombreCurso={cita.cita.nombreCurso}
+                    calificacion={cita.cita.calificacion}
+                    persona={cita.cita.persona.id}
+                    personaNombres={cita.cita.persona.nombres}
+                    personaApellidos={cita.cita.persona.apellidos}
+                    imgPerfil={cita.cita.persona.imgPerfil}
+                    tituloPerfil={cita.cita.persona.tituloPerfil}
+                  />
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <NoCitasView />
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default DocenteCitasView;
+
+//<CitasView citasProfesores={citasAlumnos} />

@@ -42,7 +42,8 @@
   background-color: rgb(255, 255, 255);
   font-size: small;
   border-radius: 30px;
-  border-color: #6750a4;
+  border-color: #000000;
+  border-width: 2px;
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -50,6 +51,7 @@
 
 .btnAgregar:hover {
   background-color: #6750a4;
+  color: #fef7ff;
 }
 
 .btnAgregar:active {
