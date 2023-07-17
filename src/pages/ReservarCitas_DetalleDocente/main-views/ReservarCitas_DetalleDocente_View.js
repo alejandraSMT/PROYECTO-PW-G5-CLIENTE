@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { getDateComponents } from '../../../utils/funcionesBienUtiles.js';
 
 function DetalleDocente(usuarioEnviado) {
-  const idUsuario = 2; // ID de usuario enviado cuando se da click en el profesor para reservar cita que seria
+  const idUsuario = 1001; // ID de usuario enviado cuando se da click en el profesor para reservar cita que seria
   // "usuarioEnviado" como parametro enviado pero he puesto "1" para probar
   const [profesor, setProfesor] = useState([]);
 
@@ -28,11 +28,12 @@ function DetalleDocente(usuarioEnviado) {
       .catch(error => console.log('Ocurrió un error:', error));
   }
 
+  const profesorId = 1
+  const usuarioReserva = 1
 
   const [horarios, setHorarios] = useState([])
   //:diaSemana/:dia/:mes/:anio/:profesorId"
   function obtenerHorarios(diaSemana,dia,mes,anio) {
-    const profesorId = 1
     fetch(`http://localhost:3001/consultar-disponibilidad/${diaSemana}/${dia}/${mes}/${anio}/${profesorId}`)
       .then(response => response.json())
       .then(data => {
@@ -42,8 +43,16 @@ function DetalleDocente(usuarioEnviado) {
       .catch(error => console.log('Ocurrió un error:', error))
   }
 
-  // /reservar-cita/:diaSemana/:dia/:mes/:anio/:hora/:profesorId/:usuarioId/:cursoId
-  
+  function reservarCita(diaSemana,dia,mes,anio,hora,cursoId){
+    fetch(`http://localhost:3001/reservar-cita/${diaSemana}/${dia}/${mes}/${anio}/${hora}/${profesorId}/${usuarioReserva}/${cursoId}`,{
+      method : "POST"
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => console.log('Ocurrió un error:', error))
+  }
 
 
 
@@ -68,6 +77,7 @@ function DetalleDocente(usuarioEnviado) {
           profesor={profesor}
           obtenerHorarios={obtenerHorarios}
           horarios = {horarios}
+          reservarCita = {reservarCita}
           />
         <br />
         <li>Las sesiones son de 30 minutos</li>
