@@ -9,7 +9,7 @@ import Header from '../../Header/Header.js';
 import { useEffect, useState } from 'react';
 
 function DetalleDocente(usuarioEnviado) {
-  const idUsuario = 1; // ID de usuario enviado cuando se da click en el profesor para reservar cita que seria
+  const idUsuario = 2; // ID de usuario enviado cuando se da click en el profesor para reservar cita que seria
   // "usuarioEnviado" como parametro enviado pero he puesto "1" para probar
   const [profesor, setProfesor] = useState([]);
 
