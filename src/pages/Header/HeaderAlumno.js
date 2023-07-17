@@ -43,13 +43,13 @@ export class HeaderAlumno extends Component {
                         <div className="offcanvas-body ">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a href="" className="nav-link">Principal</a>
+                                    <a href="http://localhost:3000/bienvenidaAlumno" className="nav-link">Principal</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="" className="nav-link">Perfil</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="" className="nav-link">Citas</a>
+                                    <a href="http://localhost:3000/alumnos" className="nav-link">Citas</a>
                                 </li>
                             </ul>
 

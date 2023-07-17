@@ -1,4 +1,10 @@
 .GroupCom{
     background-color: #f7ecfe;
-    margin: 15px;
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#contenedorComentarios{
+    width: 100%;
 }

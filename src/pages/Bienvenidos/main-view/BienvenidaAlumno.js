@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Header from "../../Header/Header";
-import TituloBienvenidosProfesor from "../components/TituloBienvenidosProfesor.js";
+import Header, { HeaderAlumno } from "../../Header/HeaderAlumno.js";
+import  TituloBienvenidosAlumno from "../components/TituloBienvenidosAlumno.js";
 import '../../Comentarios/css/ComentarioPage.css';
 import { useState } from 'react';
 import CitasContainer from '../components/CitasContainer';
 
-function BienvenidaDocente() {
+function BienvenidaAlumno() {
   const datos1 = {
     nombre: "Alfredo Pacheco",
     horario: "18/06/2023 08:00 am",
@@ -31,8 +31,8 @@ function BienvenidaDocente() {
 
   return (
     <div className="w-100">
-      <Header />
-      <TituloBienvenidosProfesor />
+      <HeaderAlumno />
+      <TituloBienvenidosAlumno />
       <div className="GroupCom">
         <div className="Subtitulocitas">Próximas Citas</div>
         <div className="citasContainerWrapper">
@@ -50,4 +50,4 @@ function BienvenidaDocente() {
   );
 }
 
-export default BienvenidaDocente;
+export default BienvenidaAlumno;
