@@ -68,4 +68,3 @@ class Card_Docente extends Component {
 }
 
 export default Card_Docente;
-
