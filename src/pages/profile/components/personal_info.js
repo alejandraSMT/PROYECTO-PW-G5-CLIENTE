@@ -2,18 +2,32 @@ import { Component } from "react";
 import Form from "react-bootstrap/Form";
 import "../css/personal_info.css"
 import foto from "./images/mochi.jpg"
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const tipo_documento = ["DNI", "Carnet de extranjeria"];
 
 const rol = ["Estudiante", "Profesor"];
 
-export default function PersonalInfo (props) {
+export default function PersonalInfo ({ personalInfo: info, onSubmit }) {
+
+    const [submitValue, setSubmitValue] = useState('');
+  
+  
+    useEffect(() => {
+      
+    }, []); //esto no se si sirve para algo
+  
+    function handleSubmit() {
+        console.log(submitValue);
+      onSubmit(submitValue);
+    }
     
     
     
-        const { personalInfo } = props;
+        const { personalInfo } = info;
         let actualRol ;
-        if(personalInfo.rol===0){
+        if(info.rol===0){
             actualRol = "Estudiante"
         }else{
             actualRol = "Profesor"
@@ -23,6 +37,7 @@ export default function PersonalInfo (props) {
             <div class = "contenedorPerfil">
 
                     <p>Información personal</p>
+                    <button type="submit" onClick={handleSubmit}>Guardar</button>
                 
 
                 <div class="izquierda">
@@ -34,7 +49,7 @@ export default function PersonalInfo (props) {
 
                         <Form.Group>
                             <Form.Label>Nombres</Form.Label>
-                            <Form.Control type = "input" id = "nombres" placeholder={props.personalInfo.nombres}></Form.Control>
+                            <Form.Control type = "input" id = "nombres" placeholder={info.nombres} value={submitValue} onChange={e => setSubmitValue(e.target.value)}></Form.Control>
                         </Form.Group>
 
                     </div>
@@ -43,7 +58,7 @@ export default function PersonalInfo (props) {
                         
                     <Form.Group>
                             <Form.Label>Apellidos</Form.Label>
-                            <Form.Control type = "input" id = "apellidos" placeholder={props.personalInfo.apellidos}></Form.Control>
+                            <Form.Control type = "input" id = "apellidos" placeholder={info.apellidos} ></Form.Control>
                     </Form.Group>
 
 
@@ -56,7 +71,7 @@ export default function PersonalInfo (props) {
                             <Form.Label>Tipo de documento</Form.Label>
                             <Form.Control as = "select" id = "tipoDocumento">
 
-                                <option value = "" disabled selected>{props.personalInfo.tipoDocumento}</option>
+                                <option value = "" disabled selected>{info.tipoDocumento}</option>
                                 {tipo_documento.map((tipo, index) =>(
                                     <option key={index} value={tipo}>
                                         {tipo}
@@ -102,7 +117,7 @@ export default function PersonalInfo (props) {
 
                     <Form.Group>
                         <Form.Label>Número</Form.Label>
-                        <Form.Control type = "input" id = "numero" placeholder={props.personalInfo.nroDocumento}></Form.Control>
+                        <Form.Control type = "input" id = "numero" placeholder={info.nroDocumento}></Form.Control>
                     </Form.Group>
 
                     </div>
