@@ -3,17 +3,24 @@ import Form from "react-bootstrap/Form";
 import "../css/personal_info.css"
 import foto from "./images/mochi.jpg"
 
-const tipo_documento = ["DNI", "Pasaporte", "Otro"];
+const tipo_documento = ["DNI", "Carnet de extranjeria"];
 
+const rol = ["Estudiante", "Profesor"];
 
-
-export class PersonalInfo extends Component {
+export default function PersonalInfo (props) {
     
     
-    render(){
+    
+        const { personalInfo } = props;
+        let actualRol ;
+        if(personalInfo.rol===0){
+            actualRol = "Estudiante"
+        }else{
+            actualRol = "Profesor"
+        }
         return(
 
-            <div class = "container">
+            <div class = "contenedorPerfil">
 
                     <p>Información personal</p>
                 
@@ -27,7 +34,7 @@ export class PersonalInfo extends Component {
 
                         <Form.Group>
                             <Form.Label>Nombres</Form.Label>
-                            <Form.Control type = "input" id = "nombres"></Form.Control>
+                            <Form.Control type = "input" id = "nombres" placeholder={props.personalInfo.nombres}></Form.Control>
                         </Form.Group>
 
                     </div>
@@ -36,7 +43,7 @@ export class PersonalInfo extends Component {
                         
                     <Form.Group>
                             <Form.Label>Apellidos</Form.Label>
-                            <Form.Control type = "input" id = "apellidos"></Form.Control>
+                            <Form.Control type = "input" id = "apellidos" placeholder={props.personalInfo.apellidos}></Form.Control>
                     </Form.Group>
 
 
@@ -49,7 +56,7 @@ export class PersonalInfo extends Component {
                             <Form.Label>Tipo de documento</Form.Label>
                             <Form.Control as = "select" id = "tipoDocumento">
 
-                                <option value = "" disabled selected></option>
+                                <option value = "" disabled selected>{props.personalInfo.tipoDocumento}</option>
                                 {tipo_documento.map((tipo, index) =>(
                                     <option key={index} value={tipo}>
                                         {tipo}
@@ -72,19 +79,30 @@ export class PersonalInfo extends Component {
 
                     <Form.Group>
                         <Form.Label>Rol</Form.Label>
-                        <Form.Control type = "input" id = "rol"></Form.Control>
+                        <Form.Control as = "select" id = "rol">
+
+                            <option value = "" disabled selected>{actualRol}</option>
+                            {rol.map((tipo, index) =>(
+                                <option key={index} value={tipo}>
+                                    {tipo}
+                                </option>
+                            ))}
+
+
+
+                        </Form.Control>
                     </Form.Group>
 
                     </div>
 
-                    {/*este div es para generar  un espacio entre el rol y el número como en el mockup*/}
+                    {/* {/este div es para generar  un espacio entre el rol y el número como en el mockup/} */}
                     <div class="col"></div>
 
                     <div class="col">
 
                     <Form.Group>
                         <Form.Label>Número</Form.Label>
-                        <Form.Control type = "input" id = "numero"></Form.Control>
+                        <Form.Control type = "input" id = "numero" placeholder={props.personalInfo.nroDocumento}></Form.Control>
                     </Form.Group>
 
                     </div>
@@ -99,7 +117,7 @@ export class PersonalInfo extends Component {
 
 
                 <div class="derecha">
-                        <img src={foto} id="foto_profesor" width={256} height={170}></img>
+                        <img src={foto} id="foto_profesor" width={256} height={170} alt=""></img>
                         <p id="adjuntar">Adjuntar archivo</p>
                     </div>
 
@@ -118,7 +136,7 @@ export class PersonalInfo extends Component {
             
             
         );
-    }
+    
 }
 
-export default PersonalInfo;
+// export default PersonalInfo;
