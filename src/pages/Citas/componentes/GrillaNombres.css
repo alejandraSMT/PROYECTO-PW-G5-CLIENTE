@@ -1,12 +1,46 @@
 .persona-cita-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: 400px;
+  gap: 10px;
+}
+
+.persona-cita-item.single-card {
+  width: 300px; /* Ajusta el tamaño fijo según tus necesidades */
+}
+
+.fila-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .persona-cita-item {
-
-  padding: 20px;
-  border-radius: 5px;
+  width: calc(25% - 10px);  
 }
+
+
+
+/*@media (max-width: 768px) {
+  .fila-container {
+    flex-wrap: wrap;
+  }
+
+  .persona-cita-item {
+    width: calc(50% - 10px); 
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+*/
+
+
+
+
+
+
+
+
+

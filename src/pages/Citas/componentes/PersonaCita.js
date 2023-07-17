@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsArrowRight } from 'react-icons/bs';
-
 export default function PersonaCitaFuncion({ nombre, universidad, carrera }) {
   const estiloPersonaCita = {
     backgroundColor: '#E8DEF8',

@@ -4,14 +4,19 @@ import './GrillaNombres.css';
 import PersonaCita from './PersonaCita';
 
 const GrillaNombres = ({ personaCitas }) => {
+  const isSingleCard = personaCitas.length === 1;
+
   return (
     <div className='persona-cita-container'>
       {personaCitas.map((personaCita, index) => (
-        <div key={index} className='persona-cita-item'>
+        <div
+          key={index}
+          className={`persona-cita-item${isSingleCard ? ' single-card' : ''}`}
+        >
           <PersonaCita
-            nombre={personaCita.nombre}
-            universidad={personaCita.universidad}
-            carrera={personaCita.carrera}
+            nombre={personaCita.nombreCompleto}
+            universidad={personaCita.nombreUniversidad}
+            carrera={personaCita.nombreCarrera}
           />
         </div>
       ))}

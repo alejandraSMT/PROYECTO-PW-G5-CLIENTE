@@ -25,6 +25,25 @@ export default function App() {
 
   const [isButton1Pressed, setIsButton1Pressed] = useState(true);
   const [isButton2Pressed, setIsButton2Pressed] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+
+  function handleSearch(parametro) {
+    if (parametro.trim() === '') {
+      setSearchResults([]);
+      return;
+    }
+
+    // Llamar al endpoint utilizando el valor del parámetro de búsqueda
+    fetch(`http://localhost:3005/usuarios/${parametro}`)
+      .then(response => response.json())
+      .then(data => {
+        setSearchResults(data);
+      })
+      .catch(error => {
+        console.error(error);
+        // Manejar el error de manera apropiada
+      });
+  }
 
   function handleButton1Click() {
     setIsButton1Pressed(true);
@@ -34,7 +53,23 @@ export default function App() {
   function handleButton2Click() {
     setIsButton1Pressed(false);
     setIsButton2Pressed(true);
+    setSearchResults([]); // Vaciar los resultados de búsqueda
   }
+
+
+  function handleDateSelect(dayOfWeek) {
+    fetch(`http://localhost:3005/profesores/horario/${dayOfWeek}`)
+      .then(response => response.json())
+      .then(data => {
+        setSearchResults(data);
+      })
+      .catch(error => {
+        console.error(error);
+        // Manejar el error de manera apropiada
+      });
+  }
+
+
 
   return (
     <div className='contenedor'>
@@ -45,8 +80,8 @@ export default function App() {
 
       <div className='barra-botones-container'>
         <div className='barra-container'>
-          {isButton1Pressed && <BarradeBusqueda />}
-          {isButton2Pressed && <BarradeBusquedaCalendar />}
+          {isButton1Pressed && <BarradeBusqueda onSearch={handleSearch} />}
+          {isButton2Pressed && <BarradeBusquedaCalendar onDateSelect={handleDateSelect}/>}
         </div>
         <div className='botones-container'>
           <BotonesFuncion
@@ -58,9 +93,18 @@ export default function App() {
         </div>
       </div>
       <br />
-      <div className='grilla-container'>
-        <GrillaNombres personaCitas={personaCitas} />
-      </div>
+      {searchResults.length > 0 && (
+        <div className='grilla-container'>
+          <GrillaNombres personaCitas={searchResults} />
+        </div>
+      )}
+      {searchResults.length === 0 && (
+        <div className='grilla-container'>
+          {searchResults.length > 0 ? (
+            <GrillaNombres personaCitas={searchResults} />
+          ) : null}
+        </div>
+      )}
     </div>
   );
 }
