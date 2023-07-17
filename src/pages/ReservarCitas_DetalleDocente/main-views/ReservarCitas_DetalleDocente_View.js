@@ -52,3 +52,4 @@ function DetalleDocente(usuarioEnviado) {
 }
 
 export default DetalleDocente;
+
