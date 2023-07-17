@@ -1,91 +1,105 @@
-.seccionRedondeada{
-    border: 2px solid gray;
-    background-color: aliceblue;
-    width: 40em;
-    height: 6em;
-    border-radius: 10px;
-    display: flex; /* Establece el contenedor como flexbox */
+.seccionRedondeada {
+  border: 2px solid gray;
+  background-color: aliceblue;
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  display: flex;
+  /* Establece el contenedor como flexbox */
   align-items: center;
+  margin: 4;
 }
 
-.GroupCom{
-    height: calc(100vh - 150px);
-    margin-left: 20px;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
+.GroupCom {
+  height: calc(100vh - 150px);
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.circulo.rounded-circle{
-    height: 10%;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
+.circulo.rounded-circle {
+  height: 10%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
-#contenedorimagenCita{
+
+#contenedorimagenCita {
   width: 20%;
   height: 100%;
 }
-.containerCita{
+
+.containerCita {
   width: 15%;
 }
 
-#imagenCita{
+#imagenCita {
   height: 100%;
   width: 100%;
   border-radius: 10px;
 }
-.Subtitulocitas {
-    color: black;
-    margin-left: 40px;
-    font-weight: 600;
-    font-size: x-large;
-    margin-top: 10px;
-  }
 
-.contenedorCitas{
-    width: 500px;
-    height: 100px;
+.Subtitulocitas {
+  color: black;
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: x-large;
+  margin-top: 10px;
 }
-#nombreSeccion, #horarioSeccion {
-    margin-bottom: 5px; /* Agrega un margen inferior para separar los elementos */
-  }
-#nombreSeccion{
+
+.contenedorCitas {
+  width: 100%;
+  height: 50%;
+}
+
+#nombreSeccion,
+#horarioSeccion {
+  margin-bottom: 5px;
+  /* Agrega un margen inferior para separar los elementos */
+}
+
+#nombreSeccion {
   font-weight: 600;
   font-size: large;
 }
-  .contenidoSeccion {
-    display: flex; /* Establece el contenedor interno como flexbox */
-    flex-direction: column; /* Alinea los elementos en columna */
-    margin-left: 10px; /* Agrega un margen izquierdo para separar del círculo */
-    width: 65%;
-  }
 
-  .citasContainerWrapper {
-    margin-top: 30px;
-    width: 94.5%;
-    margin-left: 70px;
-    height: 90%;
-  }
+.contenidoSeccion {
+  display: flex;
+  /* Establece el contenedor interno como flexbox */
+  flex-direction: column;
+  /* Alinea los elementos en columna */
+  margin-left: 10px;
+  /* Agrega un margen izquierdo para separar del círculo */
+  width: 65%;
+}
 
-  #indiPagina{
-    font-weight: 600;
-    text-align: right;
-    margin-right:15px;
-    margin-bottom: 5px;
-  }
+.citasContainerWrapper {
+  margin-top: 30px;
+  width: 94.5%;
+  margin-left: 50px;
+  height: 90%;
+}
 
-  #horarioSeccion{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+#indiPagina {
+  font-weight: 600;
+  text-align: right;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
 
-  .bienvProfFila.row{
-    width: 92.5%;
-  }
-  .col-md-6.col-lg-3{
-    margin-bottom:50px;
-    width: 43%;
-  }
+#horarioSeccion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bienvProfFila.row {
+  width: 92.5%;
+}
+
+.col-md-6.col-lg-3 {
+  margin-bottom: 50px;
+  width: 43%;
+}
