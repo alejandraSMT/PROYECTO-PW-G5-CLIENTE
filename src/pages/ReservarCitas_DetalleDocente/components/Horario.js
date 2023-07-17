@@ -60,9 +60,9 @@ export class Horario extends Component {
                 <option value="" disabled>
                   Seleccione un curso
                 </option>
-                {profesor.UsuarioCursos?.map((curso, index) => (
+                {profesor?.Usuario?.UsuarioCursos?.map((curso, index) => (
                   <option key={index} value={curso.cursoId}>
-                    {curso.Curso.nombreCurso}
+                    {curso?.Curso?.nombreCurso}
                   </option>
                 ))}
               </Form.Control>
@@ -95,4 +95,3 @@ export class Horario extends Component {
 }
 
 export default Horario;
-
