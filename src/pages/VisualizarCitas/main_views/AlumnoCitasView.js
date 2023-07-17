@@ -8,7 +8,89 @@ import "../main_views/Views.css";
 import { CitasCard } from "../components/card/CitasCard";
 
 function AlumnoCitasView() {
+  var [dataProfesores, setDataProfesores] = useState({
+    id: "",
+    nombres: "",
+    apellidos: "",
+    cita: {
+      id: "",
+      dia: "",
+      mes: "",
+      anio: "",
+      diaSemana: "",
+      hora: "",
+      status: "",
+      nombreCurso: "",
+      calificacion: "",
+      persona: {
+        id: "",
+        nombres: "",
+        apellidos: "",
+        imgPerfil: "",
+        tituloPerfil: "",
+      },
+    },
+  });
   var [citasProfesores, setCitasProfesores] = useState([]);
+
+  const handleInput = (event) => {
+    const { name, value } = event.target;
+    setDataAlumno((prevDataAlumno) => ({
+      ...prevDataAlumno,
+      [name]: value,
+    }));
+  };
+
+  function verficarEstado(respuesta) {
+    if (!respuesta.ok) {
+      throw Error("Error: " + respuesta.statusText);
+    }
+    return respuesta;
+  }
+
+  //Funcion para mostrar la DATA
+  function procesarDato(data) {
+    setCitasProfesores((prevCitasProfesores) => [...prevCitasProfesores, data]);
+    setDataProfesor({
+      id: "",
+      nombres: "",
+      apellidos: "",
+      cita: {
+        id: "",
+        dia: "",
+        mes: "",
+        anio: "",
+        diaSemana: "",
+        hora: "",
+        status: "",
+        nombreCurso: "",
+        calificacion: "",
+        persona: {
+          id: "",
+          nombres: "",
+          apellidos: "",
+          imgPerfil: "",
+          tituloPerfil: "",
+        },
+      },
+    });
+  }
+
+  //Funcion para mostrar si hay un error
+  function handleError(error) {
+    console.log("Ocurrio un error: " + error);
+  }
+
+  const handleVerCitasPasadas = async () => {
+    const url = `http://localhost:3005/citas-pasadas/`;
+    console.log(url);
+
+    fetch(url)
+      .then(verficarEstado)
+      .then((response) => response.json())
+      .then(procesarDato)
+      .catch(handleError);
+  };
 
   citasProfesores = [
     {
@@ -24,7 +106,6 @@ function AlumnoCitasView() {
       curso: "Comunicación de datos",
     },
   ];
-  const handleVerCitasPasadas = () => {};
   return (
     <div className="w-100">
       <Header />
