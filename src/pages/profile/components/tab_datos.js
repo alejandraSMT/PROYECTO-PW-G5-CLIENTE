@@ -1,42 +1,61 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 
-
-const Datos = () => {
+const Datos = ({ formData, handleInputChange }) => {
   return (
     <div className="Datos">
-      <div class = "container">
-        <div class = "row">
-          <div class="col">
-          <Form.Group>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <Form.Group>
               <Form.Label>Usuario</Form.Label>
-              <Form.Control type = "input" id = "usuario"></Form.Control>
-          </Form.Group>
+              <Form.Control
+                type="input"
+                id="usuario"
+                value={formData.usuario}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
             <Form.Group>
-                <Form.Label>Contraseña actual</Form.Label>
-                <Form.Control type = "password" id = "contraseña"></Form.Control>
+              <Form.Label>Contraseña actual</Form.Label>
+              <Form.Control
+                type="password"
+                id="contraseña"
+                value={formData.contraseña}
+                onChange={handleInputChange}
+              />
             </Form.Group>
           </div>
-          <div class="col">
+          <div className="col">
             <Form.Group>
-                <Form.Label>Nueva contraseña</Form.Label>
-                <Form.Control type = "password" id = "nueva_contraseña"></Form.Control>
+              <Form.Label>Nueva contraseña</Form.Label>
+              <Form.Control
+                type="password"
+                id="nueva_contraseña"
+                value={formData.nueva_contraseña}
+                onChange={handleInputChange}
+              />
             </Form.Group>
           </div>
-          <div class="col">
+          <div className="col">
             <Form.Group>
-                <Form.Label>Repetir contraseña</Form.Label>
-                <Form.Control type = "password" id = "repetir_contraseña"></Form.Control>
+              <Form.Label>Repetir contraseña</Form.Label>
+              <Form.Control
+                type="password"
+                id="repetir_contraseña"
+                value={formData.repetir_contraseña}
+                onChange={handleInputChange}
+              />
             </Form.Group>
           </div>
         </div>
       </div>
-      {/* First tab content will go here */}
     </div>
   );
 };
+
 export default Datos;
