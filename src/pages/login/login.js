@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./login.css"
 import LogInField from './components/login_field.js';
-import Buttons from './components/login_buttons.js';
+
 
 function LogIn(){
     return (
@@ -11,19 +11,6 @@ function LogIn(){
             </h1>
             
             <LogInField />
-            
-            <span>
-                <p>
-                    Registro de nuevo Usuario
-                </p>
-                <p>&nbsp;-	&nbsp;</p>
-                <p>
-                    Olvidé mi contraseña
-                </p>
-            </span>
-
-            <Buttons />
-            
         </div>
         
     );

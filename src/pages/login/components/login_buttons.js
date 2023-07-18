@@ -1,16 +1,14 @@
 import "../login.css";
-
 import Button from 'react-bootstrap/Button';
-import Form from "react-bootstrap/Form";
 
-function Buttons(){
+function Buttons({ onButtonClick }){
     return(
         <div className="loginbuttons">
             <Button id = "exit">
                 Salir
             </Button>
             <div style={{width: '30px'}}></div>
-            <Button id = "login">
+            <Button id = "login" onClick={ onButtonClick }>
                 Ingresar
             </Button>
 
