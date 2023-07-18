@@ -1,0 +1,46 @@
+
+
+
+
+
+/*
+/*da formato a todo lo que abarcan los tabs
+.Tabs{
+    margin-top: 210px;/*se hace esto para compensar por el position: auto de la sección de arriba (izquierda y derecha)
+    background: #FEF7FF;
+    height: auto;
+    min-height: 400px;
+}
+
+/*formato de los tabs
+ul.nav li{
+    width: 170px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: large;
+    cursor: pointer;
+}
+
+/*cambia el color de las tabs al pasar el mouse encima
+ul.nav li:hover {
+    background: rgba(50, 224, 196, 0.15);
+}
+
+/*resalta la tab que esté seleccionada
+ul.nav li.active {
+    color: purple;
+    font-weight: bold;
+    /*background-color: #A114B5;
+    border-bottom:4px solid #A114B5;
+}
+
+.linea{
+    border-left: 1px solid #000;
+    height: 50px;
+}
+
+li{
+    padding-top: 10px;
+}
+*/
