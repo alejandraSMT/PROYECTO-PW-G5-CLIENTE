@@ -1,5 +1,58 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+
+#containerDatos .btn{
+    background-color: #6750a4;
+    color: white;
+    width: fit-content;
+    border: none;
+    height: fit-content;
+    border-radius: 25px;
+}
+
+#containerDatos #rowButton{
+    padding-top: 30px;
+    padding-inline-start: 10px;
+    padding-bottom: 20px;
+}
+
+#containerDatos #rowButtonDatos{
+    padding-top: 30px;
+    margin-left: 1px;
+    padding-inline-start: 10px;
+    padding-bottom: 20px;
+}
+
+#containerUniversidad .btn{
+    background-color: #6750a4;
+    color: white;
+    width: fit-content;
+    border: none;
+    height: fit-content;
+    border-radius: 25px;
+}
+
+#containerUniversidad #rowButton{
+    padding-top: 20px;
+    padding-inline-start: 10px;
+    padding-bottom: 20px;
+}
+
+#containerPres .btn{
+    background-color: #6750a4;
+    color: white;
+    width: fit-content;
+    border: none;
+    height: fit-content;
+    border-radius: 25px
+}
+
+#containerPres #rowButton{
+    padding-top: 20px;
+    padding-inline-start: 10px;
+    padding-bottom: 20px;
+}
+
 .contenedorPerfil #cuerpo{
     /*position: absolute;*/
     margin-top: 20%;
@@ -90,10 +143,11 @@ span{
 /*tabs.css*/
 /*da formato a todo lo que abarcan los tabs*/
 .contenedorPerfil .Tabs{
-    margin-top: 210px;/*se hace esto para compensar por el position: auto de la sección de arriba (izquierda y derecha)*/
+    margin-top: 80px;/*se hace esto para compensar por el position: auto de la sección de arriba (izquierda y derecha)*/
     background: #FEF7FF;
     height: auto;
-    min-height: 400px;
+    min-height: min-content;
+    width: 90%;
 }
 
 /*formato de los tabs*/

@@ -1,4 +1,11 @@
-
+.contenedorPerfil .btn{
+    background-color: #6750a4;
+    color: white;
+    width: fit-content;
+    border: none;
+    height: fit-content;
+    border-radius: 25px;
+}
 
 
 

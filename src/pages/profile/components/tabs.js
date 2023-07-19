@@ -1,22 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Datos from "./tab_datos";
 import Universidad from "./tab_universidad";
 import Presentacion from "./tab_presentacion";
 import "../css/tabs.css";
 
-const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("tab1");
-  const [formData, setFormData] = useState({
+const Tabs = ({ onChangeFormData, presentacion, personalInfo, setCursosUsuario,cursosUsuario }) => {
+
+  const usuarioId = 1
+
+  const initialFormData = JSON.parse(localStorage.getItem("formData")) || {
     usuario: "",
     contraseña: "",
     nueva_contraseña: "",
     repetir_contraseña: "",
+    titulo: "",
+    presentacion: "",
+  };
+
+  const [formDataUni, setFormDataUni] = useState({
     universidad: "",
     carrera: "",
     cursos: "",
-    titulo: "",
-    presentacion: ""
-  });
+  })
+
+  const [activeTab, setActiveTab] = useState("tab1");
+  const [formData, setFormData] = useState(initialFormData);
+
+  // Guardar los datos de formData en el localStorage cuando cambian
+  useEffect(() => {
+    obtenerUniversidades()
+    obtenerCursosUsuario()
+    setUniversidadSeleccionada("")
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value
+    }));
+  };
+
+  const handleInputChangeUni = (e) => {
+    const { id, value } = e.target;
+    setFormDataUni((prevFormData) => ({
+      ...prevFormData,
+      [id]: value
+    }));
+  };
 
   const handleTab1 = () => {
     setActiveTab("tab1");
@@ -30,13 +62,34 @@ const Tabs = () => {
     setActiveTab("tab3");
   };
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: value
-    }));
-  };
+
+  // Obtener la lista de universidades
+  const [universidades, setUniversidades] = useState([]);
+  const [universidadSeleccionada, setUniversidadSeleccionada] = useState("");
+  const [cursos, setCursos] = useState([]);
+  const [carreras, setCarreras] = useState([]); // Nuevo estado para las carreras
+
+  function obtenerUniversidades() {
+    fetch('http://localhost:3001/obtener-universidades')
+      .then(response => response.json())
+      .then(data => {
+        setUniversidades(data);
+      })
+      .catch(error => console.log('Ocurrió un error:', error));
+  }
+
+  function obtenerCursosUsuario() {
+    // "/obtener-cursos-usuario/:usuarioId"
+    fetch(`http://localhost:3001/obtener-cursos-usuario/${usuarioId}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setCursosUsuario(data);
+      })
+      .catch(error => console.log('Ocurrió un error:', error));
+  }
+
+  onChangeFormData(formData);
 
   return (
     <div className="Tabs">
@@ -53,13 +106,25 @@ const Tabs = () => {
       </ul>
       <div className="outlet">
         {activeTab === "tab1" && (
-          <Datos formData={formData} handleInputChange={handleInputChange} />
+          <Datos formData={formData} handleInputChange={handleInputChange} personalInfo={personalInfo} />
         )}
         {activeTab === "tab2" && (
-          <Universidad formData={formData} handleInputChange={handleInputChange} />
+          <Universidad
+            cursosUsuario={cursosUsuario}
+            personalInfo={personalInfo}
+            formDataUni={formDataUni}
+            handleInputChangeUni={handleInputChangeUni}
+            universidadSeleccionada={universidadSeleccionada}
+            setUniversidadSeleccionada={setUniversidadSeleccionada}
+            universidades={universidades}
+            carreras={carreras}
+            setCarreras={setCarreras}
+            cursos={cursos}
+            setCursos={setCursos}
+          />
         )}
         {activeTab === "tab3" && (
-          <Presentacion formData={formData} handleInputChange={handleInputChange} />
+          <Presentacion formData={formData} handleInputChange={handleInputChange} presentacion={presentacion} />
         )}
       </div>
     </div>
