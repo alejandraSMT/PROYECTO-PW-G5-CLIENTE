@@ -56,7 +56,9 @@ export class Comentario extends Component {
           {convertFromMonthIntToString(datos.mes)} del {datos.anio} -{" "}
           {datos.puntaje} estrellas
         </span>
-          <p className="coment">{datos.comentario}</p>
+        <p className="coment">
+      {datos.comentario ? datos.comentario : "El estudiante no ingresó un comentario"}
+    </p>
       </div>
     );
   }

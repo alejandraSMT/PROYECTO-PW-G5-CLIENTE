@@ -49,3 +49,13 @@ a:visited{
 .card-img{
     max-width: auto;
 }
+
+#calificacionTxt{
+    text-align: left;
+    width: 100%;
+}
+
+#contCalifTxt{
+    padding: 0;
+    margin-left: 2%;
+}

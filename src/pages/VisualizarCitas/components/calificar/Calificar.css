@@ -54,3 +54,12 @@ margin: 6px 12px;
 background-color: rgb(255, 255, 255);
 text-transform: uppercase;
 }
+
+#botonGuardarCal{
+    margin: 2%;
+}
+
+#campoComentario{
+    width: 80%;
+    height: 150%;
+}

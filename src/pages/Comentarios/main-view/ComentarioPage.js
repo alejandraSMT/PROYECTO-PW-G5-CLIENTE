@@ -8,13 +8,13 @@ import { useState, useEffect } from 'react';
 
 function ComentarioPage() {
   const [profesores, setProfesores] = useState([]);
-
+  const idCita = 165;
   useEffect(() => {
     obtenerProfesores();
   }, []);
 
   function obtenerProfesores() {
-    fetch('http://localhost:3000/consultar-cita/3')
+    fetch('http://localhost:3001/consultar-calificaciones/'+idCita)
       .then(response => response.json())
       .then(data => {
         console.log(data); // Verificar los datos obtenidos desde el servidor

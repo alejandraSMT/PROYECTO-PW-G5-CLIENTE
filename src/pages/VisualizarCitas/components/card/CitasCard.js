@@ -3,12 +3,11 @@ import "./CitasCard.css"
 import logo from "./morado.png"
 import logo1 from './flowers_placeholder.jpg'
 import BotonCitasCard from "../../commons/botones/boton_citascard/BotonCitasCard";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Calificar } from "../calificar/Calificar";
 
-export function CitasCard({ nombre, carrera, horario, curso, calificacion, showCal, setShowCal}) {
+export function CitasCard({ id, nombre, carrera, horario, curso, calificacion, showCal, setShowCal, handleCitaID }) {
 
-    //const [showCal, setShowCal] = useState(false)
 
     return (
         <>
@@ -39,16 +38,22 @@ export function CitasCard({ nombre, carrera, horario, curso, calificacion, showC
                     </div>
                 </div>
                 <div className="">
-                    <div class="card-body">
-                        <div class="row justify-content-end">
-                            <div class="col text-end">
-                                <p>Calificación: {calificacion} </p>
-                            </div>
-                            <div class="col text-end">
-                                <BotonCitasCard
-                                    opcion="calificar" show={showCal} setShow={setShowCal}
-                                />
-                            </div>
+                <div class="card-body">
+                    <div class="row justify-content-end">
+                        <div id="contCalifTxt" class="col text-end">
+                            <p id="calificacionTxt">Calificación: {calificacion !== null ? calificacion : "Pendiente"}</p>
+                        </div>
+                        {calificacion === null && (
+                <div class="col text-end">
+                    <BotonCitasCard
+                        opcion="calificar"
+                        show={showCal}
+                        setShow={setShowCal}
+                        citaID={id}
+                        handleCitaID={handleCitaID}
+                    />
+                </div>
+            )}
 
                         </div>
                     </div>

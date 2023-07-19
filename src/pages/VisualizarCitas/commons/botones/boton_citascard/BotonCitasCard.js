@@ -2,18 +2,18 @@ import {useState} from "react";
 import { Calificar } from "../../../components/calificar/Calificar";
 import './BotonCitasCard.css';
 
-function BotonCitasCard({opcion}, citaID){
-    citaID = 9; //EJEMPLO ID DE LO QUE SE DEBE ENVIAR COMO PARAMETRO PARA ELIMINAR CITA
-    const [show,setShow] = useState(false);
-
-    const ShowCard=() =>{
-        if(show==true){
-            setShow(false);
-        }else{
-            setShow(true);
-        }
-    }
-    
+function BotonCitasCard({opcion,show, setShow,citaID,handleCitaID}){
+    const [isCitaIdSet, setIsCitaIdSet] = useState(false);
+    const ShowCard = () => {
+      if (show === true) {
+        setShow(false);
+      } else {
+        setShow(true);
+      }
+      console.log(show);
+      setIsCitaIdSet(true);
+      handleCitaID(citaID)
+    };
     const handleClickBorrarCita = (citaID) => {
         fetch('http://localhost:3001/delete-cita/' + citaID, {
           method: 'POST'
@@ -34,22 +34,16 @@ function BotonCitasCard({opcion}, citaID){
           .catch(error => console.log('Ocurrió un error:', error));
       };
     
-    let button;
         if(opcion=="cancelar"){
-            
-            button = <button class="button" id="cancelar" onClick={() => handleClickBorrarCita(citaID)}>Cancelar</button>
-        }else{
-            button = <button onClick={ShowCard} class="button" id="calificar" >Calificar</button>
-            {
-                show && (<Calificar/>)
+            <button class="button" id="cancelar" onClick={() => handleClickBorrarCita(citaID)}>Cancelar</button>
+        }else {
+            if (isCitaIdSet) {
+              return <button className="button" id="calificar" disabled>Calificar</button>;
+            } else {
+              return <button className="button" id="calificar" onClick={ShowCard}>Calificar</button>;
             }
-        }
+          }
 
-    return (
-        <>
-        {button}
-        </>
-    );
 }
 
 export default BotonCitasCard;

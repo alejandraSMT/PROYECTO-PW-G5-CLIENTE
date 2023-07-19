@@ -43,7 +43,7 @@ export class Header extends Component {
                         <div className="offcanvas-body ">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a href="http://localhost:3000/bienvenidaProfesor" className="nav-link">Principal</a>
+                                    <a href="http://localhost:3000/bienvenida" className="nav-link">Principal</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="" className="nav-link">Perfil</a>
