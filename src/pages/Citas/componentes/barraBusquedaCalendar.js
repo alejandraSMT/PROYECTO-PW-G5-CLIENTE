@@ -38,8 +38,8 @@ export default function BarradeBusquedaCalendar({ onDateSelect }) {
       <div className="row">
         <div className="col">
           <Form.Group className="barra">
-            <Form.Label>Búsqueda</Form.Label>
-            <Form.Control type="date" id="fecha" onChange={handleDateChange} />
+            <Form.Label id="labelXD">Búsqueda</Form.Label>
+            <Form.Control  type="date" id="fecha" onChange={handleDateChange} />
           </Form.Group>
           <div className="footer" id="footer-form">
             DD/MM/YY
