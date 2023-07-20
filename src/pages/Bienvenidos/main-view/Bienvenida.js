@@ -5,11 +5,14 @@ import TituloBienvenidos from "../components/TituloBienvenidos.js";
 import '../../Comentarios/css/ComentarioPage.css';
 import { useState } from 'react';
 import CitasContainer from '../components/CitasContainer';
+import BotonProgCita from '../../VisualizarCitas/commons/botones/programar_cita/BotonProgramarCita';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 function Bienvenida() {
 
-  const idUsuario = 7
+  const idUsuario = window.sessionStorage.getItem('usuarioId');
+  console.log("XDDDDDDDDDD     ", window.sessionStorage.getItem('usuarioId'))
 
   useEffect(() => {
     obtenerUsuario();
@@ -19,18 +22,36 @@ function Bienvenida() {
   const [usuario, setUsuario] = useState([]);
 
   function obtenerUsuario() {
-    fetch('http://localhost:3001/datos-usuario/' + idUsuario)
+    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/datos-usuario/' + idUsuario, {
+      method: 'POST',
+      mode: 'cors',
+    })
       .then(response => response.json())
       .then(data => {
         console.log(data); // Verificar los datos obtenidos desde el servidor
         setUsuario(data);
       })
       .catch(error => console.log('Ocurrió un error:', error));
+    /*axios
+      .post('https://proyecto-pw-g5-servidor-production.up.railway.app/datos-usuario/1')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Verificar los datos obtenidos desde el servidor
+        setUsuario(data);
+      })
+      .catch(error => console.log('Ocurrió un error:', error));*/
   }
 
   const [citas, setCitas] = useState([])
   function obtenerCitas() {
-    fetch('http://localhost:3001/principal-citas/'+idUsuario)
+
+
+    console.log('https://proyecto-pw-g5-servidor-production.up.railway.app/principal-citas/' + idUsuario)
+
+    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/principal-citas/' + idUsuario, {
+      method: 'POST',
+      mode: 'cors',
+    })
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -39,10 +60,9 @@ function Bienvenida() {
       .catch(error => console.log('Ocurrió un error:', error))
   }
 
-  return (
-    <div className="w-100">
-      <Header />
-      <TituloBienvenidos usuario={usuario} />
+  let condicion;
+  if (citas.length > 0) {
+    condicion =
       <div className="GroupCom">
         <div className="Subtitulocitas">Próximas Citas</div>
         <div className="citasContainerWrapper">
@@ -64,6 +84,40 @@ function Bienvenida() {
           </div>
         </div>
       </div>
+  } else {
+    if (window.sessionStorage.getItem("rol") === "1") {
+      condicion = 
+      <>
+        <br />
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col col-lg-6 text-center">
+              <h5>Actualmente no tiene citas de Asesoría reservada</h5>
+            </div>
+          </div>
+        </div>
+      </>
+    } else {
+      condicion = <>
+        <br />
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col col-lg-6 text-center">
+              <h5>Actualmente no tiene citas de Asesoría reservada</h5>
+              <br />
+              <BotonProgCita />
+            </div>
+          </div>
+        </div>
+      </>
+    }
+  }
+
+  return (
+    <div className="w-100">
+      <Header />
+      <TituloBienvenidos usuario={usuario} />
+      {condicion}
     </div>
   );
 }

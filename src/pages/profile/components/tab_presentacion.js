@@ -4,13 +4,13 @@ import "../css/profile.css"
 
 const Presentacion = ({ formData, handleInputChange, presentacion }) => {
   
-  const usuarioId = '1'
+  const usuarioId = window.sessionStorage.getItem("usuarioId")
 
   function cambiarPresentacion(){
     const tituloPerfil = formData.titulo
     const presentacion = formData.presentacion
 
-    fetch(`http://localhost:3001/cambiar-presentacion/${usuarioId}/${tituloPerfil}/${presentacion}`,{
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/cambiar-presentacion/${usuarioId}/${tituloPerfil}/${presentacion}`,{
       method : "POST"
     })
       .then(response => {

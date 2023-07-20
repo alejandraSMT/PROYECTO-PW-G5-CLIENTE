@@ -1,20 +1,26 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+#fecha {
+    border-color: purple;
+    border-radius: 3px;
+    width: 98%;
+
+}
 
 /* Quita la sombra cuando le das click*/
 .form-control:focus {
-box-shadow: none;
-border-color: purple;
+    box-shadow: none;
+    border-color: purple;
 }
 
 
 .lupa-container {
-border: none;
-background: none;
+    border: none;
+    background: none;
 }
+
 .lupa {
-color: purple;
+    color: purple;
 
 }
 
@@ -22,28 +28,26 @@ color: purple;
 
 /* Atributos del recuadro de texto */
 .form-control {
-border-color: purple;
-border-radius: 3px;
-width: 98%;
+    border-color: purple;
+    border-radius: 3px;
+    width: 98%;
 
 }
 
 /* Atributos del texto (label) en el borde superior */
 .form-label {
-background-color: white;
-padding-left: 5px;
-padding-right: 5px;
-transform: translateY(15px) translateX(-2px) scale(0.85);
-user-select: none;
-color: purple;
-line-height: 1rem;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    transform: translateY(15px) translateX(-2px) scale(0.85);
+    user-select: none;
+    color: purple;
+    line-height: 1rem;
 }
 
 
 #lupita {
-margin-left: 2%;
-margin-right: 5%;
-margin-top: 3.8%;
+    margin-left: 2%;
+    margin-right: 5%;
+    margin-top: 3.8%;
 }
-
-

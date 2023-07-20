@@ -6,7 +6,7 @@ import "../css/tabs.css";
 
 const Tabs = ({ onChangeFormData, presentacion, personalInfo, setCursosUsuario,cursosUsuario }) => {
 
-  const usuarioId = 1
+  const usuarioId = window.sessionStorage.getItem("usuarioId")
 
   const initialFormData = JSON.parse(localStorage.getItem("formData")) || {
     usuario: "",
@@ -70,7 +70,7 @@ const Tabs = ({ onChangeFormData, presentacion, personalInfo, setCursosUsuario,c
   const [carreras, setCarreras] = useState([]); // Nuevo estado para las carreras
 
   function obtenerUniversidades() {
-    fetch('http://localhost:3001/obtener-universidades')
+    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/obtener-universidades')
       .then(response => response.json())
       .then(data => {
         setUniversidades(data);
@@ -80,7 +80,7 @@ const Tabs = ({ onChangeFormData, presentacion, personalInfo, setCursosUsuario,c
 
   function obtenerCursosUsuario() {
     // "/obtener-cursos-usuario/:usuarioId"
-    fetch(`http://localhost:3001/obtener-cursos-usuario/${usuarioId}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/obtener-cursos-usuario/${usuarioId}`)
       .then(response => response.json())
       .then(data => {
         console.log(data)

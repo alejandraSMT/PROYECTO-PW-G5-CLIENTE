@@ -39,7 +39,7 @@ export default function PersonalInfo({ personalInfo: info, onSubmit }) {
 
     function updateProfilePhoto(idUsuario) {
         axios
-            .post(`http://localhost:3001/update-foto2/${idUsuario}`, { imagenNueva: uploadedPhoto })
+            .post(`https://proyecto-pw-g5-servidor-production.up.railway.app/update-foto2/${idUsuario}`, { imagenNueva: uploadedPhoto })
             .then((response) => {
                 setFoto(uploadedPhoto); // Actualizar el estado "foto" con la nueva URL
                 setUploadedPhoto(''); // Limpiar el estado de "uploadedPhoto" después de guardar la nueva URL

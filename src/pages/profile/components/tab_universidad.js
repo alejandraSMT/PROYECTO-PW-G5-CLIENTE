@@ -12,7 +12,7 @@ const Universidad = ({ cursosUsuario, personalInfo, formDataUni, handleInputChan
   }, []);
 
 
-  const usuarioId = 1003
+  const usuarioId = window.sessionStorage.getItem("usuarioId")
 
   const handleUniversidadChange = (e) => {
     formDataUni.carrera = ""
@@ -42,7 +42,7 @@ const Universidad = ({ cursosUsuario, personalInfo, formDataUni, handleInputChan
   };
 
   function obtenerCarreras(universidadId) {
-    fetch(`http://localhost:3001/obtener-carreras-universidad/${universidadId}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/obtener-carreras-universidad/${universidadId}`)
       .then(response => response.json())
       .then(data => {
         setCarreras(data);
@@ -51,7 +51,7 @@ const Universidad = ({ cursosUsuario, personalInfo, formDataUni, handleInputChan
   }
 
   function obtenerCursos(universidadId, carreraId) {
-    fetch(`http://localhost:3001/cursos/${universidadId}/${carreraId}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/cursos/${universidadId}/${carreraId}`)
       .then(response => response.json())
       .then(data => {
         setCursos(data);
@@ -72,7 +72,7 @@ const Universidad = ({ cursosUsuario, personalInfo, formDataUni, handleInputChan
   }
 
   function guardarUniversidad(usuarioId, universidadId) {
-    fetch(`http://localhost:3001/cambiar-universidad/${usuarioId}/${universidadId}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/cambiar-universidad/${usuarioId}/${universidadId}`)
       .then(response => {
         if (response.status != 200) {
           alert("Error al guardar universidad")
@@ -89,7 +89,7 @@ const Universidad = ({ cursosUsuario, personalInfo, formDataUni, handleInputChan
   }
 
   function guardarCarrera(usuarioId, carreraId) {
-    fetch(`http://localhost:3001/cambiar-carrera/${usuarioId}/${carreraId}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/cambiar-carrera/${usuarioId}/${carreraId}`)
       .then(response => {
         if (response.status != 200) {
           alert("Error al guardar carrera")
@@ -107,7 +107,7 @@ const Universidad = ({ cursosUsuario, personalInfo, formDataUni, handleInputChan
 
   function guardarCursos(usuarioId, cursoId) {
     //asignar-curso-usuario/:usuarioId/:cursoId
-    fetch(`http://localhost:3001/asignar-curso-usuario/${usuarioId}/${cursoId}`, {
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/asignar-curso-usuario/${usuarioId}/${cursoId}`, {
       method: "POST"
     })
       .then(response => {

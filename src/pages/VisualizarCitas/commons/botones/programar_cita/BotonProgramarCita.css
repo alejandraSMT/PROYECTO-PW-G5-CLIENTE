@@ -1,4 +1,4 @@
-.btn{
+#progCita{
     background-color: #6750a4;
     color: white;
     border: none;
@@ -6,7 +6,7 @@
     border-radius: 25px;
 }
 
-.btn:hover{
+#progCita:hover{
     color: #6750a4;
     background-color: white;
     border-style:solid;

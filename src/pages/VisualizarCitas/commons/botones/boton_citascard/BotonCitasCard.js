@@ -15,7 +15,7 @@ function BotonCitasCard({opcion,show, setShow,citaID,handleCitaID}){
       handleCitaID(citaID)
     };
     const handleClickBorrarCita = (citaID) => {
-        fetch('http://localhost:3001/delete-cita/' + citaID, {
+        fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/delete-cita/' + citaID, {
           method: 'POST'
         })
           .then(response => response.json())

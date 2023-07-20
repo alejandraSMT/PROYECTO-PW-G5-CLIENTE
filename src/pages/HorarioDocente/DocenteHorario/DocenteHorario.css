@@ -37,9 +37,10 @@
   line-height: 83px;
 }
 
+
 .btnAgregar {
   color: black;
-  background-color: rgb(255, 255, 255);
+  background-color:#fef7ff;
   font-size: small;
   border-radius: 30px;
   border-color: #6750a4;
@@ -48,6 +49,7 @@
   flex-grow: 0;
 }
 
+
 .btnAgregar:hover {
   background-color: #6750a4;
 }
@@ -55,3 +57,5 @@
 .btnAgregar:active {
   background-color: #6750a4;
 }
+
+

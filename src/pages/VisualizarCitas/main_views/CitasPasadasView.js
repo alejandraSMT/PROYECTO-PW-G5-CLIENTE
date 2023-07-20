@@ -5,18 +5,21 @@ import CitasHeader from "../commons/citas_header/CitasHeader";
 import CitasView from "./subviews/CitasView";
 import Header from "../../Header/Header";
 import { Calificar } from "../components/calificar/Calificar";
+import NoCitasView from './NoCitasView';
 
 function CitasPasadasView() {
   const [showCal, setShowCal] = useState(false);
   const [citaID, setCitaID] = useState(null);
   const [citasProfesores, setcitasProfesores] = useState([]);
-  const idUsuario = 42;
+  const idUsuario = parseInt(window.sessionStorage.getItem("usuarioId"));
   useEffect(() => {
     obtenerCitasProfesores();
   }, []);
 
   function obtenerCitasProfesores() {
-    fetch('http://localhost:3001/citas-pasadas/'+idUsuario)
+    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/citas-pasadas/' + idUsuario, {
+      method: "POST"
+    })
       .then(response => response.json())
       .then(data => {
         console.log(data); // Verificar los datos obtenidos desde el servidor
@@ -38,27 +41,39 @@ function CitasPasadasView() {
     obtenerCitasProfesores(); // Actualiza las citas después de que se complete la calificación
   };
 
-  return (
-    <div className="w-100">
-      <Header />
-      <CitasHeader />
-      <CitasView
-        citasProfesores={citasProfesores}
-        showCal={showCal}
-        setShowCal={setShowCal}
-        handleCitaID={handleCitaID}
-      />
-      <div className="">
-        {showCal ? (
-          <Calificar
-            citaId={citaID}
-            showCal={showCal}
-            setShowCal={setShowCal}
-            onCalificacionComplete={handleCalificacionComplete} // Pasa la función al componente Calificar
-          />
-        ) : null}
+  let condicion;
+  if (citasProfesores.length > 0) {
+    condicion =
+      <div className="w-100">
+        <Header />
+        <CitasHeader
+          view={"pasadas"}
+        />
+        <CitasView
+          citasProfesores={citasProfesores}
+          showCal={showCal}
+          setShowCal={setShowCal}
+          handleCitaID={handleCitaID}
+        />
+        <div className="">
+          {showCal ? (
+            <Calificar
+              citaId={citaID}
+              showCal={showCal}
+              setShowCal={setShowCal}
+              onCalificacionComplete={handleCalificacionComplete} // Pasa la función al componente Calificar
+            />
+          ) : null}
+        </div>
       </div>
-    </div>
+  } else {
+    condicion = <NoCitasView />
+  }
+
+  return (
+    <>
+      {condicion}
+    </>
   );
 }
 

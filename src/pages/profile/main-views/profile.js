@@ -3,10 +3,11 @@ import "../css/profile.css"
 import PersonalInfo from "../components/personal_info";
 import Tabs from "../components/tabs";
 import { useEffect, useState } from 'react';
+import Header from "../../Header/Header";
 
 
 function Perfil() { //todo esto es la pantalla
-    const usuarioId = "1"; //variable que deberia mantenerse a traves de todas las pantallas
+    const usuarioId = window.sessionStorage.getItem("usuarioId"); //variable que deberia mantenerse a traves de todas las pantallas
 
     const [personalInfo, setPersonalInfo] = useState([]);
     const [presentacion, setPresentacion] = useState([]); // Nuevo estado para los datos de presentación
@@ -18,7 +19,7 @@ function Perfil() { //todo esto es la pantalla
     }, []);
 
     function obtenerPersonalInfo() {
-        fetch('http://localhost:3001/obtener-datos-info-personal/' + usuarioId)
+        fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/obtener-datos-info-personal/' + usuarioId)
             .then(response => response.json())
             .then(data => {
                 console.log(data); // Verificar los datos obtenidos desde el servidor
@@ -28,7 +29,7 @@ function Perfil() { //todo esto es la pantalla
     }
 
     function obtenerPresentacion() {
-        fetch('http://localhost:3001/obtener-datos-presentacion/' + usuarioId)
+        fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/obtener-datos-presentacion/' + usuarioId)
             .then(response => response.json())
             .then(data => {
                 console.log(data); // Verificar los datos obtenidos desde el servidor
@@ -53,8 +54,8 @@ function Perfil() { //todo esto es la pantalla
 
         console.log(documento)
 
-        fetch(`http://localhost:3001/datos-info-personal/${parseInt(usuarioId)}/${nombres}/${apellidos}/${documento}/${numero}`,{
-            method : "POST"
+        fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/datos-info-personal/${parseInt(usuarioId)}/${nombres}/${apellidos}/${documento}/${numero}`, {
+            method: "POST"
         })
             .then(response => {
                 response.json()
@@ -75,25 +76,27 @@ function Perfil() { //todo esto es la pantalla
 
 
     return (
-        <div className="contenedorPerfil">
-            <div id="cuerpo">
-
-                <br></br>
-                <h1>
-                    Mi perfil
-                </h1>
-                {/* <button type="submit" onClick={obtenerPersonalInfo}>Guardar</button> */}
-                <hr></hr>
-                <PersonalInfo personalInfo={personalInfo} onSubmit={handleSubmit} />
-                <Tabs
-                    onChangeFormData={handleFormDataChange}
-                    setCursosUsuario={setCursosUsuario}
-                    cursosUsuario={cursosUsuario}
-                    presentacion={presentacion}
-                    personalInfo={personalInfo}
-                />
+        <>
+            <Header />
+            <div className="contenedorPerfil">
+                <div id="cuerpo">
+                    <br></br>
+                    <h1>
+                        Mi perfil
+                    </h1>
+                    {/* <button type="submit" onClick={obtenerPersonalInfo}>Guardar</button> */}
+                    <hr></hr>
+                    <PersonalInfo personalInfo={personalInfo} onSubmit={handleSubmit} />
+                    <Tabs
+                        onChangeFormData={handleFormDataChange}
+                        setCursosUsuario={setCursosUsuario}
+                        cursosUsuario={cursosUsuario}
+                        presentacion={presentacion}
+                        personalInfo={personalInfo}
+                    />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

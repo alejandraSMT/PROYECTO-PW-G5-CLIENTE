@@ -5,7 +5,7 @@ import "../css/profile.css"
 const Datos = ({ formData, handleInputChange, personalInfo }) => {
 
 
-  const usuarioId = 1
+  const usuarioId = window.sessionStorage.getItem("usuarioId")
 
   function cambiarPassword() {
     const cont1 = formData.contraseña;
@@ -15,7 +15,7 @@ const Datos = ({ formData, handleInputChange, personalInfo }) => {
     const cont3 = formData.repetir_contraseña;
     console.log(cont3);
 
-    fetch(`http://localhost:3001/cambiar-password/${usuarioId}/${cont1}/${cont2}/${cont3}`,{
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/cambiar-password/${usuarioId}/${cont1}/${cont2}/${cont3}`,{
       method : "POST"
     })
       .then(response => {
@@ -36,7 +36,7 @@ const Datos = ({ formData, handleInputChange, personalInfo }) => {
   function cambiarUsuario() {
     const nombreUsuario = formData.usuario
 
-    fetch(`http://localhost:3001/cambiar-usuario/${usuarioId}/${nombreUsuario}`,{
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/cambiar-usuario/${usuarioId}/${nombreUsuario}`,{
       method : "POST"
     })
       .then(response => {

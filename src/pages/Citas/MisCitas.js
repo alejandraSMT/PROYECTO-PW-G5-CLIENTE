@@ -34,7 +34,7 @@ export default function App() {
     }
 
     // Llamar al endpoint utilizando el valor del parámetro de búsqueda
-    fetch(`http://localhost:3005/usuarios/${parametro}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/usuarios/${parametro}`)
       .then(response => response.json())
       .then(data => {
         setSearchResults(data);
@@ -58,7 +58,7 @@ export default function App() {
 
 
   function handleDateSelect(dayOfWeek) {
-    fetch(`http://localhost:3005/profesores/horario/${dayOfWeek}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/profesores/horario/${dayOfWeek}`)
       .then(response => response.json())
       .then(data => {
         setSearchResults(data);

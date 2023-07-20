@@ -56,6 +56,7 @@
 
 #nombreSeccion,
 #horarioSeccion {
+  font-size: medium;
   margin-bottom: 5px;
   /* Agrega un margen inferior para separar los elementos */
 }

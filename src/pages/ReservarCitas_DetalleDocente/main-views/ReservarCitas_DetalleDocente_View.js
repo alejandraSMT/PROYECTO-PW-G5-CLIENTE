@@ -7,19 +7,22 @@ import "../../ReservarCitas_DetalleDocente/css/Horario.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Header from '../../Header/Header.js';
 import { useEffect, useState } from 'react';
+import { useParams } from "react-router-dom"
 import { getDateComponents } from '../../../utils/funcionesBienUtiles.js';
 
 function DetalleDocente(usuarioEnviado) {
-  const idUsuario = 1001; // ID de usuario enviado cuando se da click en el profesor para reservar cita que seria
-  // "usuarioEnviado" como parametro enviado pero he puesto "1" para probar
   const [profesor, setProfesor] = useState([]);
+
+  // id de usuario del profe
+  const {usuarioId} = useParams();
 
   useEffect(() => {
     obtenerProfesor();
   }, []);
 
   function obtenerProfesor() {
-    fetch('http://localhost:3001/obtener-profesor-total/' + idUsuario)
+    // traer datos del profesor en base al usuarioId
+    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/obtener-profesor-total/' + usuarioId)
       .then(response => response.json())
       .then(data => {
         console.log(data); // Verificar los datos obtenidos desde el servidor
@@ -28,13 +31,15 @@ function DetalleDocente(usuarioEnviado) {
       .catch(error => console.log('Ocurrió un error:', error));
   }
 
-  const profesorId = 1
-  const usuarioReserva = 1
+  // usuario profesor loggeado
+  const usuarioReserva = window.sessionStorage.getItem("usuarioId")
 
   const [horarios, setHorarios] = useState([])
   //:diaSemana/:dia/:mes/:anio/:profesorId"
   function obtenerHorarios(diaSemana,dia,mes,anio) {
-    fetch(`http://localhost:3001/consultar-disponibilidad/${diaSemana}/${dia}/${mes}/${anio}/${profesorId}`)
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/consultar-disponibilidad/${diaSemana}/${dia}/${mes}/${anio}/${usuarioId}`,{
+      method : "POST"
+    })
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -44,8 +49,9 @@ function DetalleDocente(usuarioEnviado) {
   }
 
   function reservarCita(diaSemana,dia,mes,anio,hora,cursoId){
-    fetch(`http://localhost:3001/reservar-cita/${diaSemana}/${dia}/${mes}/${anio}/${hora}/${profesorId}/${usuarioReserva}/${cursoId}`,{
-      method : "POST"
+    fetch(`https://proyecto-pw-g5-servidor-production.up.railway.app/reservar-cita/${diaSemana}/${dia}/${mes}/${anio}/${hora}/${usuarioId}/${usuarioReserva}/${cursoId}`,{
+      method : "POST",
+      mode : 'cors'
     })
     .then(response => response.json())
     .then(data => {
@@ -80,7 +86,7 @@ function DetalleDocente(usuarioEnviado) {
           reservarCita = {reservarCita}
           />
         <br />
-        <li>Las sesiones son de 30 minutos</li>
+        <li>Las sesiones son de 1 hora</li>
         <br />
       </div>
     </div>

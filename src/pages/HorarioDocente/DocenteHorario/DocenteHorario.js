@@ -5,13 +5,20 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { HorarioCard } from "../components/HorarioCard";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./DocenteHorario.css";
 
 import React, { useState, useEffect } from "react";
 
 export function DocenteHorario() {
+
+  const usuarioId = window.sessionStorage.getItem("usuarioId")
+
   const fetchHorariosData = async () => {
     try {
-      const response = await fetch("http://localhost:3005/horarios");
+      const response = await fetch("https://proyecto-pw-g5-servidor-production.up.railway.app/horarios/"+usuarioId,{
+        method : "POST",
+      });
       const data = await response.json();
 
       // Assuming the response is an array of horarios
@@ -78,20 +85,30 @@ export function DocenteHorario() {
     let horaFin = document.getElementById("horaFin").value;
     let enlace = document.getElementById("enlace").value;
 
-    const url = `http://localhost:3005/horarios/${diaSemana}/${horaInicio}/${horaFin}/${enlace}`;
-    console.log(url);
-
-    fetch(url)
+    try{
+      let menor = parseInt(horaInicio);
+      let mayor = parseInt(horaFin);
+      if (menor < mayor) {
+      const url = `https://proyecto-pw-g5-servidor-production.up.railway.app/agregar-horarios/${diaSemana}/${horaInicio}/${horaFin}/${enlace}/${usuarioId}`;
+      console.log(url);
+      fetch(url,{
+        method: 'post',
+      })
       .then(verficarEstado)
       .then((response) => response.json())
       .then(procesarDato)
       .catch(handleError);
+      }
+    } catch(e){
+      console.log(e)
+    }
+
   };
 
   ///FALTA HACER UN FETCH PARA MOSTRAR LOS HORARIOS QUE YA ESTAN EN LA BASE DE DATOS
 
   return (
-    <Container className="container">
+    <Container fluid className="container-fluid">
       <Row>
         <Col>
           <Form.Group className="formulario">
@@ -102,7 +119,7 @@ export function DocenteHorario() {
               type="text"
               placeholder="Lunes"
               name="dia"
-              value={dataFormulario.diaSemana}
+              defaultValue={dataFormulario.diaSemana}
               onChange={handleInput}
             />
           </Form.Group>
@@ -116,7 +133,7 @@ export function DocenteHorario() {
               type="text"
               placeholder="9:00 am"
               name="horaInicio"
-              value={dataFormulario.horaInicio}
+              defaultValue={dataFormulario.horaInicio}
               onChange={handleInput}
             />
           </Form.Group>
@@ -130,7 +147,7 @@ export function DocenteHorario() {
               type="text"
               placeholder="11:00 am"
               name="horaFin"
-              value={dataFormulario.horaFin}
+              defaultValue={dataFormulario.horaFin}
               onChange={handleInput}
             />
           </Form.Group>
@@ -144,7 +161,7 @@ export function DocenteHorario() {
               type="text"
               placeholder="URL"
               name="enlace"
-              value={dataFormulario.enlace}
+              defaultValue={dataFormulario.enlace}
               onChange={handleInput}
             />
           </Form.Group>
@@ -160,7 +177,6 @@ export function DocenteHorario() {
       {horarios.map((horario, index) => (
         <HorarioCard
           id={index}
-          //key={index}
           contador={horario.id}
           dia={horario.diaSemana}
           horaInicio={horario.horaInicio}

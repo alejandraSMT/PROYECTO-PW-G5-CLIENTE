@@ -6,20 +6,30 @@
   background-color: #9274e4;
   text-align: center;
   font-weight: bold;
-  width: flex-grow;
-  height: 28px;
-  border-radius: 50%;
-  color: #fff; /* Adding a text color for better visibility */
-  display: flex;
+  border-radius: 10%;
+  color: #fef7ff; /* Adding a text color for better visibility */
   align-items: center;
   justify-content: center;
+  width: 50%;
+  height: 100%;
 }
 
 .card-row {
   background-color: #fef7ff;
+  width: flex-grow;
 }
 
 .card {
+  background-color: #fef7ff;
   border-color: #fef7ff;
   border-radius: 0;
+}
+
+.btn-card {
+  background-color: #9274e4;
+  color: #fef7ff;
+  font-weight: bold;
+  border-color: #9274e4;
+  border: none; /* Remove the border */
+  box-shadow: none; /* Remove the box shadow */
 }

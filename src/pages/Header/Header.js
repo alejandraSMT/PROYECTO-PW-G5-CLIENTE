@@ -4,7 +4,7 @@ import personCircle from './images/person-circle.svg';
 
 
 export class Header extends Component {
-    rol = localStorage.getItem('rol');
+    rol = window.sessionStorage.getItem('rol');
     render() {
         return (
             <nav className="navbar">
@@ -42,13 +42,16 @@ export class Header extends Component {
                         
 
                         <div className="offcanvas-body ">
-                            {rol === 1 ? (
+                            {this.rol === '1' ? (
                                 <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/bienvenida" className="nav-link">Principal</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/perfil" className="nav-link">Perfil</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="http://localhost:3000/citaspendientes" className="nav-link">Citas</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/horarios" className="nav-link">Horarios</a>
@@ -66,7 +69,7 @@ export class Header extends Component {
                                     <a href="http://localhost:3000/perfil" className="nav-link">Perfil</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="http://localhost:3000/alumnos" className="nav-link">Citas</a>
+                                    <a href="http://localhost:3000/citaspendientes" className="nav-link">Citas</a>
                                 </li>
                                 </ul>
                             )}

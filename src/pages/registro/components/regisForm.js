@@ -133,15 +133,17 @@ function RegisForm(){
           rol: rol
         };
     
-        fetch('http://localhost:3001/register', {
+        fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/register', {
           method: 'post',
           body: JSON.stringify(data),
           headers: {
             'Content-Type': 'application/json',
+            
           },
         })
           .then((response) => response.json())
           .then((data) => {
+            setUsuario(data)
             window.alert("hey");
           })
           .catch(handleError);

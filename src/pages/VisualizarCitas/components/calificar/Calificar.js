@@ -27,7 +27,7 @@ export class Calificar extends Component {
       console.log("Valor seleccionado:", this.state.rating);
       console.log("Comentario:", comentario);
   
-      const URL = `http://localhost:3001/calificar-cita-pasada/${citaId}/${this.state.rating}`;
+      const URL = `https://proyecto-pw-g5-servidor-production.up.railway.app/calificar-cita-pasada/${citaId}/${this.state.rating}`;
       fetch(URL, {
         method: 'PUT',
         headers: {

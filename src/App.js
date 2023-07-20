@@ -1,4 +1,4 @@
-import { alignPropType } from 'react-bootstrap/esm/types.js';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //Joaquin
 import Login from './pages/login/login.js';
@@ -7,54 +7,33 @@ import Login from './pages/login/login.js';
 import Registro from './pages/registro/registro.js';
 //export default Registro;
 
-
 //Frank
 import ReservarCitas_DetalleDocente from './pages/ReservarCitas_DetalleDocente/main-views/ReservarCitas_DetalleDocente_View.js'
 //export default ReservarCitas_DetalleDocente;
-
-
 
 //Alfredo
 import ComentariosPage from './pages/Comentarios/main-view/ComentarioPage.js';
 import Bienvenida from "./pages/Bienvenidos/main-view/Bienvenida.js"
 //export default ComentariosPage;
 
-
-
 //Alejandra
-//AlumnoCitasView
-import AlumnoCitasView from "./pages/VisualizarCitas/main_views/AlumnoCitasView";
-//export default AlumnoCitasView;
+//CitasGeneralesView
+import CitasGeneralesView from './pages/VisualizarCitas/main_views/CitasGeneralesView.js';
 
 // CitasPasadasView
 import CitasPasadasView from "./pages/VisualizarCitas/main_views/CitasPasadasView";
 //export default CitasPasadasView;
 
-
-// DocentesCitasView
-import DocenteCitasView from "./pages/VisualizarCitas/main_views/DocenteCitasView";
-//export default DocenteCitasView;
-
-// NoCitasView
-import NoCitasView from "./pages/VisualizarCitas/main_views/NoCitasView";
-//export default NoCitasView;
-
-
-
 //Andrea
 import MisCitas from './pages/Citas/MisCitas.js';
 //export default MisCitas;
 
-
-
 //Gonzalo
-//import Profile from './pages/profile/main-views/profile';
+import Profile from './pages/profile/main-views/profile';
 //export default Profile;
 
-
-
 //Cristopher
-import Horarios from './pages/HorarioDocente/main-views/HorarioDocente.js';
+import Horarios from './pages/HorarioDocente/main-views/HorarioDocente.js'
 //export default Horarios;
 
 export default function App(){
@@ -62,6 +41,28 @@ export default function App(){
         <div>
             <BrowserRouter>
                 <Routes>
+
+                    // Joaquin
+                    <Route index element = {<Registro />} />
+                    <Route path = "/registro" element = {<Registro />} />
+                    <Route path = "/login" element = {<Login />} />
+
+                    // Frank
+                    <Route path = "/reservar/:usuarioId" element = {<ReservarCitas_DetalleDocente />} />
+
+                    // Gonzalo
+                    <Route path = "/perfil" element = {<Profile />} />
+                    
+                    // Alfredo
+                    <Route path = "/comentarios" element = {<ComentariosPage />} />
+                    <Route path = "/bienvenida" element = {<Bienvenida />} />
+
+                    // Alejandra
+                    <Route path = "/citaspendientes" element = {<CitasGeneralesView />} />
+                    <Route path = "/citaspasadas" element = {<CitasPasadasView />} />
+
+                    // Andrea
+                    <Route path = "/citas" element = {<MisCitas />} />
                     
                     // Cristopher
                     <Route path = "/horarios" element = {<Horarios />} />
