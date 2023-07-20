@@ -4,6 +4,7 @@ import personCircle from './images/person-circle.svg';
 
 
 export class Header extends Component {
+    rol = localStorage.getItem('rol');
     render() {
         return (
             <nav className="navbar">
