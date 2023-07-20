@@ -1,19 +1,25 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
+/* Import Bootstrap CSS */
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
 
+/* Custom styles for your card */
 .col-card-contador {
-  background-color:  #9274e4;
+  background-color: #9274e4;
   text-align: center;
   font-weight: bold;
-  width: 33px;
+  width: flex-grow;
   height: 28px;
   border-radius: 50%;
+  color: #fff; /* Adding a text color for better visibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.card-row{
+.card-row {
   background-color: #fef7ff;
 }
 
-.card{
+.card {
   border-color: #fef7ff;
-  border-radius: 0%;
+  border-radius: 0;
 }

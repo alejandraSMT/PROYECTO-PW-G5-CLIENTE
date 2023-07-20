@@ -62,7 +62,18 @@ export default function App(){
         <div>
             <BrowserRouter>
                 <Routes>
-                    // Joaquin
+                    
+                    // Cristopher
+                    <Route path = "/horarios" element = {<Horarios />} />
+
+                </Routes>
+            </BrowserRouter>
+        </div>
+    )
+}
+
+/*
+// Joaquin
                     <Route index element = {<Registro />} />
                     <Route path = "/registro" element = {<Registro />} />
                     <Route path = "/login" element = {<Login />} />
@@ -72,9 +83,7 @@ export default function App(){
 
                     // Gonzalo
 
-                    // Cristopher
-                    <Route path = "/horarios" element = {<Horarios />} />
-
+                    
                     // Alfredo
                     <Route path = "/comentarios" element = {<ComentariosPage />} />
                     <Route path = "/bienvenida" element = {<Bienvenida />} />
@@ -88,8 +97,6 @@ export default function App(){
                     // Andrea
                     <Route path = "/citas" element = {<MisCitas />} />
 
-                </Routes>
-            </BrowserRouter>
-        </div>
-    )
-}
+
+
+*/
