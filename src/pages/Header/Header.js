@@ -42,7 +42,7 @@ export class Header extends Component {
                         
 
                         <div className="offcanvas-body ">
-                            {rol === 1 ? (
+                            {this.rol === 1 ? (
                                 <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/bienvenida" className="nav-link">Principal</a>
