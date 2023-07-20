@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsArrowRight } from 'react-icons/bs';
-export default function PersonaCitaFuncion({ nombre, universidad, carrera }) {
+export default function PersonaCitaFuncion({ nombre, universidad, carrera ,usuarioId, onClick}) {
   const estiloPersonaCita = {
     backgroundColor: '#E8DEF8',
     color: 'black',
@@ -22,9 +22,14 @@ export default function PersonaCitaFuncion({ nombre, universidad, carrera }) {
   const estiloParrafo = {
     margin: '0',
   };
+  
+  // Llama a la función onClick cuando se hace clic en el card
+    const handleClick = () => {
+      onClick(usuarioId);
+    };
 
   return (
-    <button className="btn" style={estiloPersonaCita}>
+    <button className="btn" style={estiloPersonaCita} onClick={handleClick}>
       <div className="persona-info" style={estiloPersonaInfo}>
         <p className="nombre" style={estiloParrafo}>{nombre}</p>
         <p className="universidad" style={estiloParrafo}>{universidad} - {carrera}</p>
