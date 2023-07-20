@@ -33,8 +33,8 @@ export default function BarradeBusqueda({ onSearch }) {
   return (
     <div className="row">
       <Form.Group className="barra position-relative">
-        <Form.Label>Búsqueda</Form.Label>
-        <Form.Control type="text" value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
+        <Form.Label id="labelXD">Búsqueda</Form.Label>
+        <Form.Control id="controlXD" type="text" value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
         <button className="lupa-container" style={{ position: 'absolute', left: '93%', top: '56%' }} onClick={handleSearch}>
           <BsSearch className="lupa" style={{ position: 'absolute', left: '93%', top: '56%' }} />
         </button>
