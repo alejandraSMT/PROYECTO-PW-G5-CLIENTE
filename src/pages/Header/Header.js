@@ -41,12 +41,13 @@ export class Header extends Component {
                         
 
                         <div className="offcanvas-body ">
-                            <ul className="navbar-nav">
+                            {rol === 1 ? (
+                                <ul className="navbar-nav">
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/bienvenida" className="nav-link">Principal</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="" className="nav-link">Perfil</a>
+                                    <a href="http://localhost:3000/perfil" className="nav-link">Perfil</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/horarios" className="nav-link">Horarios</a>
@@ -54,7 +55,20 @@ export class Header extends Component {
                                 <li className="nav-item">
                                     <a href="http://localhost:3000/comentarios" className="nav-link">Calificaciones</a>
                                 </li>
-                            </ul>
+                                </ul>
+                            ) : (
+                                <ul className="navbar-nav">
+                                <li className="nav-item">
+                                    <a href="http://localhost:3000/bienvenida" className="nav-link">Principal</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="http://localhost:3000/perfil" className="nav-link">Perfil</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a href="http://localhost:3000/alumnos" className="nav-link">Citas</a>
+                                </li>
+                                </ul>
+                            )}
 
                             <div className="SAC">
                                     SACv1.0.1-alpha
