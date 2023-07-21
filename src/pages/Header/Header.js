@@ -55,6 +55,9 @@ export class Header extends Component {
                                     <a href="http://localhost:3000/horarios" className="nav-link">Horarios</a>
                                 </li>
                                 <li className="nav-item">
+                                    <a href="http://localhost:3000/citaspendientes" className="nav-link">Citas</a>
+                                </li>
+                                <li className="nav-item">
                                     <a href="http://localhost:3000/comentarios" className="nav-link">Calificaciones</a>
                                 </li>
                                 </ul>
