@@ -17,7 +17,7 @@ export class HeaderAlumno extends Component {
                         aria-label="Abrir menú de lateral"
                     >
                         {/*icono del boton*/}
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="iconoHeader"></span>
                     </button>
 
                     {/* Menu lateral desplegable */}

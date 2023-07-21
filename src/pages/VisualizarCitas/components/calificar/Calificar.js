@@ -19,28 +19,38 @@ export class Calificar extends Component {
     });
   };
 
-  handleGuardarClick = () => {
-    const { citaId, setShowCal } = this.props; // Obtén el citaId y setShowCal de las props
-    const comentario = document.getElementById("campoComentario").value; // Obtén el valor del campo de entrada
+  handleGuardarClick = async () => {
+    const { citaId, setShowCal } = this.props;
+    const comentario = document.getElementById("campoComentario").value;
     
     if (this.state.rating) {
-      console.log("Valor seleccionado:", this.state.rating);
-      console.log("Comentario:", comentario);
-  
       const URL = `https://proyecto-pw-g5-servidor-production.up.railway.app/calificar-cita-pasada/${citaId}/${this.state.rating}`;
-      fetch(URL, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json' // Asegúrate de incluir este encabezado
+      try {
+        const response = await fetch(URL, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
           },
-        body: JSON.stringify({ comentario }) // Agrega el comentario al cuerpo de la solicitud fetch
-      })
-        .then(this.verificarEstado)
-        .then(response => response.text())
-        .then(this.procesarDato)
-        .catch(this.handleError);
-        setShowCal(false); // Quitar esta línea porque ahora llamaremos a la función desde el componente padre
-        this.props.onCalificacionComplete(); // Llama a la función proporcionada desde el componente padre
+          body: JSON.stringify({ comentario })
+        });
+  
+        if (!response.ok) {
+          throw new Error("Ocurrió un error: " + response.statusText);
+        }
+  
+        const data = await response.text();
+        this.procesarDato(data);
+  
+        // Esperamos un breve momento antes de recargar la página.
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Puedes ajustar el tiempo de espera aquí.
+  
+        window.location.reload();
+      } catch (error) {
+        console.log("Ocurrió un error: " + error);
+      }
+  
+      setShowCal(false);
+      this.props.onCalificacionComplete();
     } else {
       console.log("Por favor, selecciona un valor de rating");
     }

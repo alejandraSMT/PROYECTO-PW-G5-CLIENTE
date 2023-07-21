@@ -7,7 +7,6 @@ import { useState } from 'react';
 import CitasContainer from '../components/CitasContainer';
 import BotonProgCita from '../../VisualizarCitas/commons/botones/programar_cita/BotonProgramarCita';
 import { useEffect } from 'react';
-import axios from 'axios';
 
 function Bienvenida() {
 

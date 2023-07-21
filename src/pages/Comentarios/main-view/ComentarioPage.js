@@ -8,13 +8,12 @@ import { useState, useEffect } from 'react';
 
 function ComentarioPage() {
   const [profesores, setProfesores] = useState([]);
-  const idCita = 165;
   useEffect(() => {
     obtenerProfesores();
   }, []);
 
   function obtenerProfesores() {
-    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/consultar-calificaciones/' + idCita)
+    fetch('https://proyecto-pw-g5-servidor-production.up.railway.app/consultar-calificaciones/' + window.sessionStorage.getItem('usuarioId'))
       .then(response => response.json())
       .then(data => {
         console.log(data); // Verificar los datos obtenidos desde el servidor

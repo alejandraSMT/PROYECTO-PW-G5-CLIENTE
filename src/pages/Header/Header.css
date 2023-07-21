@@ -87,3 +87,14 @@ nav{
   .thin-menu {
     max-width: 300px; /* Puedes ajustar este valor según tus necesidades */
 }
+
+#iconLista{
+  scale: 2;
+}
+
+#iconPerfil{
+  scale: 2;
+}
+
+
+
